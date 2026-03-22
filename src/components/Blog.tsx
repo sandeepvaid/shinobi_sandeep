@@ -12,7 +12,7 @@ export default function Blog() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="scrolls" ref={ref} className="relative overflow-hidden py-24" style={{ background: "#0e0e0e" }}>
+    <section id="scrolls" ref={ref} className="relative overflow-hidden py-16 md:py-24 pb-24 md:pb-24" style={{ background: "#0e0e0e" }}>
       <span className="section-watermark top-8 left-4" style={{ opacity: 0.025 }}>SCROLLS</span>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-16">
@@ -40,7 +40,7 @@ export default function Blog() {
         </motion.div>
 
         {/* Blog cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {blogs.map((b, i) => (
             <motion.a
               key={b.id}

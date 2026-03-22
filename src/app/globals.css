@@ -47,6 +47,11 @@
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: #0e0e0e; }
   ::-webkit-scrollbar-thumb { background: #ff8f70; border-radius: 2px; }
+
+  /* Extra bottom padding on mobile so content clears the fixed bottom nav */
+  @media (max-width: 767px) {
+    html { scroll-padding-top: 64px; }
+  }
 }
 
 @layer components {

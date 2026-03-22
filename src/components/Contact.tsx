@@ -52,7 +52,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="summon" ref={sectionRef} className="relative overflow-hidden py-24" style={{ background: "#000000" }}>
+    <section id="summon" ref={sectionRef} className="relative overflow-hidden py-16 md:py-24 pb-28 md:pb-24" style={{ background: "#000000" }}>
       <span className="section-watermark top-8 left-4" style={{ opacity: 0.025 }}>SUMMON</span>
 
       {/* Ambient glows */}
@@ -84,7 +84,7 @@ export default function Contact() {
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* ── Form ─────────────────────────────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
@@ -114,7 +114,7 @@ export default function Contact() {
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-5 p-8"
+                className="flex flex-col gap-5 p-5 md:p-8"
                 style={{ background: "#1a1919", border: "1px solid rgba(72,72,71,0.2)" }}
               >
                 <div className="px-3 py-1 self-start" style={{ background: "rgba(0,189,253,0.1)", borderLeft: "2px solid #00bdfd" }}>
@@ -222,7 +222,7 @@ export default function Contact() {
             className="flex flex-col gap-4"
           >
             {/* Direct contact */}
-            <div className="p-7" style={{ background: "#1a1919", border: "1px solid rgba(72,72,71,0.2)" }}>
+            <div className="p-5 md:p-7" style={{ background: "#1a1919", border: "1px solid rgba(72,72,71,0.2)" }}>
               <span className="hud-label block mb-5" style={{ color: "#ff8f70" }}>Direct Lines</span>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">

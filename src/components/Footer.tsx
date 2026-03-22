@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function Footer() {
   return (
     <footer
-      className="relative overflow-hidden py-12 px-6 md:px-16"
+      className="relative overflow-hidden py-10 md:py-12 px-5 md:px-16 pb-24 md:pb-12"
       style={{ background: "#0e0e0e", borderTop: "1px solid rgba(72,72,71,0.2)" }}
     >
       {/* Decorative corner blade */}
@@ -15,7 +15,7 @@ export default function Footer() {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6 text-center sm:text-left">
         <div className="flex items-center gap-3">
           <span
             className="text-lg font-black tracking-tighter uppercase"

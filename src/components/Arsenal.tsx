@@ -72,7 +72,7 @@ export default function Arsenal() {
         </motion.header>
 
         {/* Projects — asymmetric grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-20 md:mb-32">
           {/* Chatter - big card */}
           <motion.div
             initial={{ opacity: 0, y: 32 }}
@@ -81,7 +81,7 @@ export default function Arsenal() {
             className="lg:col-span-7 group"
           >
             <div
-              className="relative p-8 md:p-12 overflow-hidden transition-all duration-500"
+              className="relative p-6 md:p-12 overflow-hidden transition-all duration-500"
               style={{
                 background: "#262626",
                 border: "1px solid rgba(72,72,71,0.2)",
@@ -115,7 +115,7 @@ export default function Arsenal() {
                 >
                   CHATTER
                 </h3>
-                <p className="text-lg leading-relaxed mb-8 max-w-lg" style={{ color: "#adaaaa" }}>
+                <p className="text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-lg" style={{ color: "#adaaaa" }}>
                   A high-concurrency Social Media Server architected for horizontal scale. Features robust Auth protocols, resilient Message Queues, and dynamic social graph synchronization.
                 </p>
 
@@ -142,7 +142,7 @@ export default function Arsenal() {
                   href="https://github.com/sandeepvaid/Chatter"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-4 font-bold uppercase tracking-tight transition-all group/btn relative overflow-hidden"
+                  className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 font-bold uppercase tracking-tight transition-all group/btn relative overflow-hidden text-sm md:text-base"
                   style={{ fontFamily: "Epilogue, sans-serif", background: "linear-gradient(135deg, #ff8f70, #ff7852)", color: "#5c1300" }}
                   onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 20px rgba(0,189,253,0.4)")}
                   onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
@@ -162,7 +162,7 @@ export default function Arsenal() {
             className="lg:col-span-5 flex flex-col gap-4"
           >
             <div
-              className="p-8 md:p-10 flex-1 transition-all duration-300 relative"
+              className="p-6 md:p-10 flex-1 transition-all duration-300 relative"
               style={{ background: "#1a1919", border: "1px solid rgba(0,189,253,0.2)", borderLeft: "2px solid rgba(0,189,253,0.3)" }}
               onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(0,189,253,0.45)")}
               onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(0,189,253,0.2)")}
@@ -217,11 +217,14 @@ export default function Arsenal() {
 
             {/* ETL Pipeline badge */}
             <div
-              className="p-6 relative overflow-hidden"
+              className="p-5 md:p-6 relative overflow-hidden"
               style={{ background: "#131313", border: "1px solid rgba(255,112,114,0.2)", borderTop: "3px solid #ff7072" }}
             >
-              <div className="absolute -top-3 -right-3 px-3 py-1 rotate-12 hud-label" style={{ background: "#ff7072", color: "#000" }}>50K REQ/S</div>
-              <h4 className="font-bold uppercase mb-2" style={{ fontFamily: "Epilogue, sans-serif", fontSize: "1.1rem" }}>ETL PIPELINE</h4>
+              {/* Badge — inline on mobile instead of rotated absolute to avoid overflow */}
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="font-bold uppercase" style={{ fontFamily: "Epilogue, sans-serif", fontSize: "1.1rem" }}>ETL PIPELINE</h4>
+                <span className="hud-label px-2 py-1 text-[9px]" style={{ background: "#ff7072", color: "#000" }}>50K REQ/S</span>
+              </div>
               <p className="text-xs leading-relaxed" style={{ color: "#adaaaa" }}>100M+ records · PostgreSQL · Redis · AWS · Fault-tolerant</p>
             </div>
           </motion.div>
@@ -249,14 +252,14 @@ export default function Arsenal() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1">
             {breathingStyles.map((bs, i) => (
               <motion.div
                 key={bs.style}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.4 + i * 0.08 }}
-                className="p-8 relative group transition-all duration-300"
+                className="p-6 md:p-8 relative group transition-all duration-300"
                 style={{
                   background: i % 2 === 0 ? "#131313" : "#1a1919",
                   borderTop: `3px solid ${bs.color}`,
@@ -294,7 +297,7 @@ export default function Arsenal() {
         </motion.section>
 
         {/* Alliance CTA */}
-        <div className="mt-24 p-12 md:p-16 relative overflow-hidden" style={{ background: "#000000" }}>
+        <div className="mt-16 md:mt-24 p-8 md:p-16 relative overflow-hidden" style={{ background: "#000000" }}>
           <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none" style={{ background: "linear-gradient(to left, rgba(255,143,112,0.05), transparent)" }} />
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
             <div className="max-w-xl text-center md:text-left">
@@ -308,7 +311,7 @@ export default function Arsenal() {
             </div>
             <a
               href="#summon"
-              className="whitespace-nowrap px-10 py-5 font-black uppercase tracking-widest transition-colors"
+              className="whitespace-nowrap w-full md:w-auto text-center px-8 md:px-10 py-4 md:py-5 font-black uppercase tracking-widest transition-colors"
               style={{ fontFamily: "Epilogue, sans-serif", background: "#ffffff", color: "#0e0e0e" }}
               onMouseEnter={(e) => { e.currentTarget.style.background = "#ff8f70"; e.currentTarget.style.color = "#5c1300"; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = "#ffffff"; e.currentTarget.style.color = "#0e0e0e"; }}

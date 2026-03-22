@@ -31,6 +31,10 @@ export default function ShinobiCursor() {
   const TRAIL_LEN = 6;
 
   useEffect(() => {
+    /* ── disable entirely on touch devices ─────────────── */
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    if (isTouch) return;
+
     /* ── inject cursor: none globally ─────────────────── */
     const style = document.createElement("style");
     style.innerHTML = "*, *::before, *::after { cursor: none !important; }";

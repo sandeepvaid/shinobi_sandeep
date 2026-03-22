@@ -14,7 +14,7 @@ export default function Testimonials() {
   const t = testimonials[current];
 
   return (
-    <section id="testimonials" ref={ref} className="relative overflow-hidden py-24" style={{ background: "#131313" }}>
+    <section id="testimonials" ref={ref} className="relative overflow-hidden py-16 md:py-24 pb-24 md:pb-24" style={{ background: "#131313" }}>
       <span className="section-watermark top-8 left-8" style={{ opacity: 0.02 }}>ALLIES</span>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-16">
@@ -45,7 +45,7 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.35 }}
-              className="p-8 md:p-12 relative overflow-hidden"
+              className="p-5 sm:p-8 md:p-12 relative overflow-hidden"
               style={{ background: "#201f1f", border: "1px solid rgba(72,72,71,0.2)", borderLeft: `3px solid ${avatarColors[t.avatar]}` }}
             >
               {/* Big quote */}
@@ -56,7 +56,7 @@ export default function Testimonials() {
                 "
               </div>
 
-              <p className="text-lg md:text-xl leading-relaxed relative z-10 mb-10" style={{ color: "#d1d5db" }}>
+              <p className="text-base md:text-xl leading-relaxed relative z-10 mb-8 md:mb-10" style={{ color: "#d1d5db" }}>
                 "{t.text}"
               </p>
 
@@ -138,7 +138,7 @@ export default function Testimonials() {
           </div>
 
           {/* Thumbnail strip */}
-          <div className="flex gap-3 mt-8">
+          <div className="flex gap-2 md:gap-3 mt-6 md:mt-8 flex-wrap">
             {testimonials.map((t, i) => (
               <button
                 key={i}
