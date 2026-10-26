@@ -2,26 +2,29 @@
 import { useEffect, useRef } from "react";
 
 /* Kunai SVG string — rendered as innerHTML for zero React overhead */
+/* NOTE: color is applied via inline `style` (not the fill/stroke presentation
+   attributes) because CSS var() only resolves inside style, not attributes.
+   This keeps the cursor theme-reactive when --c-accent / --c-blue change. */
 const kunaiSVG = (color: string, size: number) => `
 <svg width="${size}" height="${size * 3.8}" viewBox="0 0 20 76" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- blade tip -->
-  <polygon points="10,0 3,28 17,28" fill="${color}" opacity="0.95"/>
+  <polygon points="10,0 3,28 17,28" style="fill:${color}" opacity="0.95"/>
   <line x1="10" y1="2" x2="10" y2="27" stroke="rgba(255,255,255,0.6)" stroke-width="0.8"/>
   <!-- guard -->
-  <rect x="2" y="28" width="16" height="4" rx="1" fill="${color}" opacity="0.85"/>
-  <rect x="0" y="29" width="4" height="2" rx="0.5" fill="${color}" opacity="0.6"/>
-  <rect x="16" y="29" width="4" height="2" rx="0.5" fill="${color}" opacity="0.6"/>
+  <rect x="2" y="28" width="16" height="4" rx="1" style="fill:${color}" opacity="0.85"/>
+  <rect x="0" y="29" width="4" height="2" rx="0.5" style="fill:${color}" opacity="0.6"/>
+  <rect x="16" y="29" width="4" height="2" rx="0.5" style="fill:${color}" opacity="0.6"/>
   <!-- handle -->
-  <rect x="8" y="32" width="4" height="22" rx="1" fill="${color}" opacity="0.55"/>
-  <rect x="7" y="35" width="6" height="1.5" rx="0.5" fill="${color}" opacity="0.35"/>
-  <rect x="7" y="39" width="6" height="1.5" rx="0.5" fill="${color}" opacity="0.35"/>
-  <rect x="7" y="43" width="6" height="1.5" rx="0.5" fill="${color}" opacity="0.35"/>
-  <rect x="7" y="47" width="6" height="1.5" rx="0.5" fill="${color}" opacity="0.35"/>
+  <rect x="8" y="32" width="4" height="22" rx="1" style="fill:${color}" opacity="0.55"/>
+  <rect x="7" y="35" width="6" height="1.5" rx="0.5" style="fill:${color}" opacity="0.35"/>
+  <rect x="7" y="39" width="6" height="1.5" rx="0.5" style="fill:${color}" opacity="0.35"/>
+  <rect x="7" y="43" width="6" height="1.5" rx="0.5" style="fill:${color}" opacity="0.35"/>
+  <rect x="7" y="47" width="6" height="1.5" rx="0.5" style="fill:${color}" opacity="0.35"/>
   <!-- ring -->
-  <circle cx="10" cy="58" r="4" stroke="${color}" stroke-width="1.5" fill="none" opacity="0.7"/>
-  <circle cx="10" cy="58" r="1.5" fill="${color}" opacity="0.5"/>
+  <circle cx="10" cy="58" r="4" style="stroke:${color};fill:none" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="10" cy="58" r="1.5" style="fill:${color}" opacity="0.5"/>
   <!-- rope tail -->
-  <path d="M10 62 Q14 66 10 70 Q6 74 10 76" stroke="${color}" stroke-width="1.2" fill="none" opacity="0.45" stroke-linecap="round"/>
+  <path d="M10 62 Q14 66 10 70 Q6 74 10 76" style="stroke:${color};fill:none" stroke-width="1.2" opacity="0.45" stroke-linecap="round"/>
 </svg>`;
 
 export default function ShinobiCursor() {
@@ -52,22 +55,22 @@ export default function ShinobiCursor() {
 
     /* ── apply kunai SVG once ──────────────────────────── */
     if (mainRef.current) {
-      mainRef.current.innerHTML = kunaiSVG("#ff8f70", 22);
+      mainRef.current.innerHTML = kunaiSVG("var(--c-accent)", 22);
     }
 
     /* ── ring dots ─────────────────────────────────────── */
     const setRingState = () => {
       if (!ringRef.current) return;
-      const c = hovering ? "#00bdfd" : "#ff8f70";
+      const c = hovering ? "var(--c-blue)" : "var(--c-accent)";
       const s = hovering ? 52 : 38;
       ringRef.current.style.width  = `${s}px`;
       ringRef.current.style.height = `${s}px`;
       ringRef.current.style.borderColor = hovering
-        ? "rgba(0,189,253,0.55)"
-        : "rgba(255,143,112,0.4)";
+        ? "rgba(var(--c-blue-rgb),0.55)"
+        : "rgba(var(--c-accent-rgb),0.4)";
       ringRef.current.style.boxShadow = hovering
-        ? "0 0 14px rgba(0,189,253,0.3)"
-        : "0 0 8px rgba(255,143,112,0.15)";
+        ? "0 0 14px rgba(var(--c-blue-rgb),0.3)"
+        : "0 0 8px rgba(var(--c-accent-rgb),0.15)";
       // update tick marks color
       ringRef.current.querySelectorAll<HTMLSpanElement>(".ring-tick").forEach((t) => {
         t.style.background = c;
@@ -87,12 +90,12 @@ export default function ShinobiCursor() {
         mainRef.current.style.left = `${mx}px`;
         mainRef.current.style.top  = `${my}px`;
         mainRef.current.style.filter = clicking
-          ? "drop-shadow(0 0 10px #fff) drop-shadow(0 0 18px #ff8f70)"
+          ? "drop-shadow(0 0 10px #fff) drop-shadow(0 0 18px var(--c-accent))"
           : hovering
-          ? "drop-shadow(0 0 8px #00bdfd) drop-shadow(0 0 14px rgba(0,189,253,0.4))"
-          : "drop-shadow(0 0 5px rgba(255,143,112,0.7))";
+          ? "drop-shadow(0 0 8px var(--c-blue)) drop-shadow(0 0 14px rgba(var(--c-blue-rgb),0.4))"
+          : "drop-shadow(0 0 5px rgba(var(--c-accent-rgb),0.7))";
         // swap color on hover/click
-        const col = clicking ? "#ffffff" : hovering ? "#00bdfd" : "#ff8f70";
+        const col = clicking ? "#ffffff" : hovering ? "var(--c-blue)" : "var(--c-accent)";
         mainRef.current.innerHTML = kunaiSVG(col, 22);
       }
 
@@ -141,7 +144,7 @@ export default function ShinobiCursor() {
       el.style.top     = `${my}px`;
       el.style.transform = `translate(-50%,-50%) rotate(${angle}deg)`;
       el.style.opacity = "0.55";
-      el.innerHTML     = kunaiSVG("#ff8f70", 14);
+      el.innerHTML     = kunaiSVG("var(--c-accent)", 14);
 
       // fade out
       requestAnimationFrame(() => {
@@ -197,7 +200,7 @@ export default function ShinobiCursor() {
           width: 38,
           height: 38,
           transform: "translate(-50%,-50%)",
-          border: "1px solid rgba(255,143,112,0.4)",
+          border: "1px solid rgba(var(--c-accent-rgb),0.4)",
           borderRadius: "50%",
           pointerEvents: "none",
           zIndex: 99998,
@@ -217,7 +220,7 @@ export default function ShinobiCursor() {
               display: "block",
               width: 5,
               height: 1,
-              background: "#ff8f70",
+              background: "var(--c-accent)",
               transformOrigin: "left center",
               transform: `rotate(${deg}deg) translateX(19px) translateY(-50%)`,
               opacity: 0.8,

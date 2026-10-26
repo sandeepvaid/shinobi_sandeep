@@ -21,7 +21,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`dark ${epilogue.variable} ${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`dark ${epilogue.variable} ${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Apply saved theme before paint to avoid a flash of the default palette */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('theme');if(t==='sasuke')document.documentElement.setAttribute('data-theme','sasuke');}catch(e){}`,
+          }}
+        />
+      </head>
       <body style={{ fontFamily: "Inter, sans-serif" }}>
         <ShinobiCursor />
         {children}

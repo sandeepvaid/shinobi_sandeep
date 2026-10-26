@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="absolute bottom-0 right-0 w-24 h-24 opacity-10 pointer-events-none">
         <div
           className="absolute bottom-0 right-0 w-full h-full border-r border-b translate-x-12 translate-y-12 rotate-45"
-          style={{ borderColor: "#ff8f70" }}
+          style={{ borderColor: "var(--c-accent)" }}
         />
       </div>
 
@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="flex items-center gap-3">
           <span
             className="text-lg font-black tracking-tighter uppercase"
-            style={{ fontFamily: "Epilogue, sans-serif", color: "#ff8f70", textShadow: "0 0 8px rgba(255,143,112,0.4)" }}
+            style={{ fontFamily: "Epilogue, sans-serif", color: "var(--c-accent)", textShadow: "0 0 8px rgba(var(--c-accent-rgb),0.4)" }}
           >
             SHINOBI_DEV
           </span>
@@ -27,7 +27,7 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full" style={{ background: "#00bdfd" }} />
+          <span className="w-2 h-2 rounded-full" style={{ background: "var(--c-blue)" }} />
           <span className="hud-label" style={{ color: "#484847" }}>ACTIVE_OPERATIVE · 2024</span>
         </div>
 
@@ -36,7 +36,7 @@ export default function Footer() {
           whileHover={{ y: -2 }}
           className="flex items-center gap-2 px-4 py-2 transition-all hud-label"
           style={{ border: "1px solid rgba(72,72,71,0.3)", color: "#484847" }}
-          onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#ff8f70"; e.currentTarget.style.color = "#ff8f70"; }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--c-accent)"; e.currentTarget.style.color = "var(--c-accent)"; }}
           onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(72,72,71,0.3)"; e.currentTarget.style.color = "#484847"; }}
         >
           <span className="material-symbols-outlined text-sm">keyboard_double_arrow_up</span>

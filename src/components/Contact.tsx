@@ -45,10 +45,10 @@ export default function Contact() {
   };
 
   const socials = [
-    { label: "GITHUB",   icon: "code",        href: "https://github.com/sandeepvaid",                      color: "#ff8f70" },
-    { label: "LINKEDIN", icon: "group",        href: "https://www.linkedin.com/in/sandeep-vaid623/",        color: "#00bdfd" },
-    { label: "MEDIUM",   icon: "history_edu",  href: "https://medium.com/@vaid77167",                       color: "#ff7072" },
-    { label: "EMAIL",    icon: "mail",         href: `mailto:${personalInfo.email}`,                        color: "#facc15" },
+    { label: "GITHUB",   icon: "code",        href: "https://github.com/sandeepvaid",                      color: "var(--c-accent)" },
+    { label: "LINKEDIN", icon: "group",        href: "https://www.linkedin.com/in/sandeep-vaid623/",        color: "var(--c-blue)" },
+    { label: "MEDIUM",   icon: "history_edu",  href: "https://medium.com/@vaid77167",                       color: "var(--c-red)" },
+    { label: "EMAIL",    icon: "mail",         href: `mailto:${personalInfo.email}`,                        color: "var(--c-yellow)" },
   ];
 
   return (
@@ -56,8 +56,8 @@ export default function Contact() {
       <span className="section-watermark top-8 left-4" style={{ opacity: 0.025 }}>SUMMON</span>
 
       {/* Ambient glows */}
-      <div className="absolute top-0 left-0 w-96 h-96 rounded-full blur-[150px] pointer-events-none" style={{ background: "rgba(255,143,112,0.06)" }} />
-      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full blur-[120px] pointer-events-none" style={{ background: "rgba(0,189,253,0.06)" }} />
+      <div className="absolute top-0 left-0 w-96 h-96 rounded-full blur-[150px] pointer-events-none" style={{ background: "rgba(var(--c-accent-rgb),0.06)" }} />
+      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full blur-[120px] pointer-events-none" style={{ background: "rgba(var(--c-blue-rgb),0.06)" }} />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-16">
         {/* Header */}
@@ -67,19 +67,19 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <span className="hud-label block mb-3" style={{ color: "#00bdfd" }}>Open to Collaboration</span>
+          <span className="hud-label block mb-3" style={{ color: "var(--c-blue)" }}>Open to Collaboration</span>
           <h2
             className="font-black uppercase tracking-tighter"
             style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(3rem, 8vw, 6rem)", lineHeight: 0.9 }}
           >
             DEPLOY{" "}
-            <span style={{ color: "#ff8f70", textShadow: "0 0 24px rgba(255,143,112,0.4)" }}>SUMMON</span>
+            <span style={{ color: "var(--c-accent)", textShadow: "0 0 24px rgba(var(--c-accent-rgb),0.4)" }}>SUMMON</span>
           </h2>
           <p className="mt-5 text-lg max-w-xl mx-auto" style={{ color: "#adaaaa" }}>
             Ready to forge an alliance? Send your mission briefing — I respond within 24 hours.
           </p>
           <div className="flex items-center justify-center gap-2 mt-4">
-            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#00bdfd" }} />
+            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "var(--c-blue)" }} />
             <span className="hud-label" style={{ color: "#adaaaa" }}>STATUS: AVAILABLE_FOR_MISSIONS</span>
           </div>
         </motion.div>
@@ -95,16 +95,16 @@ export default function Contact() {
             {status === "success" ? (
               <div
                 className="h-full flex flex-col items-center justify-center gap-5 p-12 text-center"
-                style={{ background: "#1a1919", border: "1px solid rgba(0,189,253,0.2)" }}
+                style={{ background: "#1a1919", border: "1px solid rgba(var(--c-blue-rgb),0.2)" }}
               >
-                <span className="material-symbols-outlined text-5xl" style={{ color: "#00bdfd" }}>check_circle</span>
+                <span className="material-symbols-outlined text-5xl" style={{ color: "var(--c-blue)" }}>check_circle</span>
                 <h3 className="font-black uppercase text-2xl" style={{ fontFamily: "Epilogue, sans-serif" }}>SCROLL SENT!</h3>
                 <p className="text-sm" style={{ color: "#adaaaa" }}>Your message has been transmitted. I&apos;ll respond within 24 hours.</p>
                 <button
                   onClick={() => setStatus("idle")}
                   className="hud-label px-5 py-2 transition-colors mt-2"
                   style={{ border: "1px solid rgba(72,72,71,0.4)", color: "#adaaaa" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#ff8f70"; e.currentTarget.style.color = "#ff8f70"; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--c-accent)"; e.currentTarget.style.color = "var(--c-accent)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(72,72,71,0.4)"; e.currentTarget.style.color = "#adaaaa"; }}
                 >
                   SEND ANOTHER
@@ -117,8 +117,8 @@ export default function Contact() {
                 className="flex flex-col gap-5 p-5 md:p-8"
                 style={{ background: "#1a1919", border: "1px solid rgba(72,72,71,0.2)" }}
               >
-                <div className="px-3 py-1 self-start" style={{ background: "rgba(0,189,253,0.1)", borderLeft: "2px solid #00bdfd" }}>
-                  <span className="hud-label" style={{ color: "#00bdfd" }}>Mission Brief</span>
+                <div className="px-3 py-1 self-start" style={{ background: "rgba(var(--c-blue-rgb),0.1)", borderLeft: "2px solid var(--c-blue)" }}>
+                  <span className="hud-label" style={{ color: "var(--c-blue)" }}>Mission Brief</span>
                 </div>
 
                 {/* Name */}
@@ -134,7 +134,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className="px-4 py-3 text-sm outline-none transition-all"
                     style={{ background: "#131313", border: "1px solid rgba(72,72,71,0.3)", color: "#ffffff", fontFamily: "Inter, sans-serif" }}
-                    onFocus={(e) => (e.target.style.borderColor = "#ff8f70")}
+                    onFocus={(e) => (e.target.style.borderColor = "var(--c-accent)")}
                     onBlur={(e)  => (e.target.style.borderColor = "rgba(72,72,71,0.3)")}
                   />
                 </div>
@@ -152,7 +152,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className="px-4 py-3 text-sm outline-none transition-all"
                     style={{ background: "#131313", border: "1px solid rgba(72,72,71,0.3)", color: "#ffffff", fontFamily: "Inter, sans-serif" }}
-                    onFocus={(e) => (e.target.style.borderColor = "#ff8f70")}
+                    onFocus={(e) => (e.target.style.borderColor = "var(--c-accent)")}
                     onBlur={(e)  => (e.target.style.borderColor = "rgba(72,72,71,0.3)")}
                   />
                 </div>
@@ -170,14 +170,14 @@ export default function Contact() {
                     onChange={handleChange}
                     className="px-4 py-3 text-sm outline-none resize-none transition-all"
                     style={{ background: "#131313", border: "1px solid rgba(72,72,71,0.3)", color: "#ffffff", fontFamily: "Inter, sans-serif" }}
-                    onFocus={(e) => (e.target.style.borderColor = "#ff8f70")}
+                    onFocus={(e) => (e.target.style.borderColor = "var(--c-accent)")}
                     onBlur={(e)  => (e.target.style.borderColor = "rgba(72,72,71,0.3)")}
                   />
                 </div>
 
                 {/* Error banner */}
                 {status === "error" && (
-                  <div className="flex items-center gap-2 px-4 py-2 text-sm" style={{ background: "rgba(255,112,114,0.1)", border: "1px solid rgba(255,112,114,0.3)", color: "#ff7072" }}>
+                  <div className="flex items-center gap-2 px-4 py-2 text-sm" style={{ background: "rgba(var(--c-red-rgb),0.1)", border: "1px solid rgba(var(--c-red-rgb),0.3)", color: "var(--c-red)" }}>
                     <span className="material-symbols-outlined text-sm">error</span>
                     Transmission failed — please try again or email directly.
                   </div>
@@ -187,13 +187,13 @@ export default function Contact() {
                 <motion.button
                   type="submit"
                   disabled={status === "sending"}
-                  whileHover={status !== "sending" ? { scale: 1.02, boxShadow: "0 0 24px rgba(255,143,112,0.35)" } : {}}
+                  whileHover={status !== "sending" ? { scale: 1.02, boxShadow: "0 0 24px rgba(var(--c-accent-rgb),0.35)" } : {}}
                   whileTap={status !== "sending" ? { scale: 0.97 } : {}}
                   className="py-4 font-black uppercase tracking-tighter flex items-center justify-center gap-2 transition-opacity"
                   style={{
                     fontFamily: "Epilogue, sans-serif",
-                    background: "linear-gradient(135deg, #ff8f70, #ff7852)",
-                    color: "#5c1300",
+                    background: "linear-gradient(135deg, var(--c-accent), var(--c-accent2))",
+                    color: "var(--c-onaccent)",
                     opacity: status === "sending" ? 0.7 : 1,
                     cursor: status === "sending" ? "not-allowed" : "pointer",
                   }}
@@ -223,22 +223,22 @@ export default function Contact() {
           >
             {/* Direct contact */}
             <div className="p-5 md:p-7" style={{ background: "#1a1919", border: "1px solid rgba(72,72,71,0.2)" }}>
-              <span className="hud-label block mb-5" style={{ color: "#ff8f70" }}>Direct Lines</span>
+              <span className="hud-label block mb-5" style={{ color: "var(--c-accent)" }}>Direct Lines</span>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <span className="material-symbols-outlined" style={{ color: "#ff8f70" }}>mail</span>
+                  <span className="material-symbols-outlined" style={{ color: "var(--c-accent)" }}>mail</span>
                   <a
                     href={`mailto:${personalInfo.email}`}
                     className="text-sm transition-colors"
                     style={{ color: "#adaaaa" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#ff8f70")}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--c-accent)")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "#adaaaa")}
                   >
                     {personalInfo.email}
                   </a>
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="material-symbols-outlined" style={{ color: "#00bdfd" }}>location_on</span>
+                  <span className="material-symbols-outlined" style={{ color: "var(--c-blue)" }}>location_on</span>
                   <span className="text-sm" style={{ color: "#adaaaa" }}>{personalInfo.location}</span>
                 </div>
               </div>

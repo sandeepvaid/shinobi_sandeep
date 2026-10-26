@@ -39,9 +39,9 @@ export default function About() {
           >
             <div
               className="inline-flex items-center gap-3 px-4 py-2 self-start"
-              style={{ background: "rgba(255,112,114,0.1)", borderLeft: "2px solid #ff7072" }}
+              style={{ background: "rgba(var(--c-red-rgb),0.1)", borderLeft: "2px solid var(--c-red)" }}
             >
-              <span className="hud-label" style={{ color: "#ff7072" }}>Introduction Arc</span>
+              <span className="hud-label" style={{ color: "var(--c-red)" }}>Introduction Arc</span>
             </div>
 
             <h2
@@ -49,7 +49,7 @@ export default function About() {
               style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(2.5rem, 10vw, 5.5rem)" }}
             >
               ORIGIN{" "}
-              <span className="italic" style={{ color: "#ff8f70", textShadow: "0 0 16px rgba(255,143,112,0.45)" }}>
+              <span className="italic" style={{ color: "var(--c-accent)", textShadow: "0 0 16px rgba(var(--c-accent-rgb),0.45)" }}>
                 STORY
               </span>{" "}
               ARC
@@ -59,7 +59,7 @@ export default function About() {
               Engineering is not just writing code; it is a{" "}
               <span
                 className="font-semibold underline"
-                style={{ color: "#ffffff", textDecorationColor: "#ff8f70", textUnderlineOffset: "4px" }}
+                style={{ color: "#ffffff", textDecorationColor: "var(--c-accent)", textUnderlineOffset: "4px" }}
               >
                 way of life
               </span>
@@ -71,13 +71,13 @@ export default function About() {
                 {
                   icon: "bolt",
                   title: "Perseverance",
-                  color: "#ff8f70",
+                  color: "var(--c-accent)",
                   text: "Inspired by the Uzumaki spirit — I believe in \"Never Give Up\". Debugging a 3AM production failure is my trial of fire.",
                 },
                 {
                   icon: "flare",
                   title: "Precision",
-                  color: "#00bdfd",
+                  color: "var(--c-blue)",
                   text: "Like sharpened blades, my code is refined through iteration. Every function is a breathing style, executed with lethal accuracy.",
                 },
               ].map((p) => (
@@ -112,19 +112,19 @@ export default function About() {
               >
                 <div className="flex justify-between items-center mb-5">
                   <span className="hud-label" style={{ color: "#adaaaa" }}>TRAINING_LOG</span>
-                  <span className="hud-label" style={{ color: "#ff7072" }}>LVL. 99</span>
+                  <span className="hud-label" style={{ color: "var(--c-red)" }}>LVL. 99</span>
                 </div>
                 <div className="flex items-baseline gap-2 mb-4">
                   <span
                     className="font-black tracking-tighter"
-                    style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(3rem, 12vw, 5rem)", lineHeight: 1, color: "#ff8f70" }}
+                    style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(3rem, 12vw, 5rem)", lineHeight: 1, color: "var(--c-accent)" }}
                   >
                     600+
                   </span>
                   <span className="hud-label" style={{ color: "#adaaaa" }}>LeetCode<br />Solved</span>
                 </div>
                 <div className="w-full h-1 mb-5" style={{ background: "#1a1919" }}>
-                  <div className="h-full w-4/5" style={{ background: "#ff8f70", boxShadow: "0 0 10px #ff8f70" }} />
+                  <div className="h-full w-4/5" style={{ background: "var(--c-accent)", boxShadow: "0 0 10px var(--c-accent)" }} />
                 </div>
                 <p className="text-sm italic" style={{ color: "#adaaaa" }}>
                   "A shinobi&apos;s true power is not in the scroll, but in the repetition of the blade."
@@ -132,7 +132,7 @@ export default function About() {
               </div>
 
               {/* Glow */}
-              <div className="absolute -inset-4 blur-2xl opacity-[0.07] rounded-full pointer-events-none" style={{ background: "#ff8f70" }} />
+              <div className="absolute -inset-4 blur-2xl opacity-[0.07] rounded-full pointer-events-none" style={{ background: "var(--c-accent)" }} />
 
               {/* Education tag — sits below card, no absolute overlap issue */}
               <div
@@ -143,13 +143,13 @@ export default function About() {
                   boxShadow: "0 8px 24px rgba(0,0,0,0.5)",
                 }}
               >
-                <span className="hud-label" style={{ color: "#ff8f70" }}>B.TECH GRADUATE</span>
+                <span className="hud-label" style={{ color: "var(--c-accent)" }}>B.TECH GRADUATE</span>
                 <span className="font-bold uppercase text-xs md:text-sm" style={{ fontFamily: "Epilogue, sans-serif", color: "#ffffff" }}>
                   BTU Kota · 2022
                 </span>
                 <div className="flex gap-1.5 mt-1">
                   {[1, 2, 3].map((i) => (
-                    <div key={i} className="w-2 h-2 rounded-full opacity-50" style={{ background: i === 3 ? "#ff8f70" : "#ffffff" }} />
+                    <div key={i} className="w-2 h-2 rounded-full opacity-50" style={{ background: i === 3 ? "var(--c-accent)" : "#ffffff" }} />
                   ))}
                 </div>
               </div>
@@ -181,7 +181,7 @@ export default function About() {
             <div className="relative pt-6">
               <h3
                 className="font-bold uppercase pb-2 mb-4 w-fit"
-                style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(1.5rem, 5vw, 2rem)", borderBottom: "4px solid #ff8f70" }}
+                style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(1.5rem, 5vw, 2rem)", borderBottom: "4px solid var(--c-accent)" }}
               >
                 The Forge
               </h3>
@@ -195,7 +195,7 @@ export default function About() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* LeetCode card */}
               <div className="p-6 md:p-8 flex flex-col justify-center" style={{ background: "#0e0e0e", border: "1px solid rgba(72,72,71,0.15)" }}>
-                <span className="hud-label mb-2" style={{ color: "#00bdfd" }}>Training Stats</span>
+                <span className="hud-label mb-2" style={{ color: "var(--c-blue)" }}>Training Stats</span>
                 <h4 className="font-bold uppercase mb-3" style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(1.1rem, 3vw, 1.5rem)" }}>
                   The LeetCode Gauntlet
                 </h4>
@@ -205,8 +205,8 @@ export default function About() {
                 <div className="grid grid-cols-3 gap-2">
                   {[
                     { tier: "Easy", label: "Foundation", color: "#ffffff" },
-                    { tier: "Med",  label: "Tactical",   color: "#ff8f70" },
-                    { tier: "Hard", label: "Elite",      color: "#00bdfd" },
+                    { tier: "Med",  label: "Tactical",   color: "var(--c-accent)" },
+                    { tier: "Hard", label: "Elite",      color: "var(--c-blue)" },
                   ].map((t) => (
                     <div key={t.tier} className="p-2.5" style={{ background: "#1a1919" }}>
                       <div className="font-bold text-base md:text-lg" style={{ color: t.color, fontFamily: "Epilogue, sans-serif" }}>{t.tier}</div>
@@ -218,11 +218,11 @@ export default function About() {
 
               {/* Combat metrics */}
               <div className="p-6 md:p-8 flex flex-col justify-center" style={{ background: "#1a1919", border: "1px solid rgba(72,72,71,0.1)" }}>
-                <span className="hud-label mb-4" style={{ color: "#ff8f70" }}>Combat Metrics</span>
+                <span className="hud-label mb-4" style={{ color: "var(--c-accent)" }}>Combat Metrics</span>
                 {[
-                  { label: "ETL Records / Day",        val: "100M+",  color: "#ff8f70" },
-                  { label: "Event Throughput",         val: "2M+/s",  color: "#00bdfd" },
-                  { label: "Storage Cost Cut",         val: "85%",    color: "#ff7072" },
+                  { label: "ETL Records / Day",        val: "100M+",  color: "var(--c-accent)" },
+                  { label: "Event Throughput",         val: "2M+/s",  color: "var(--c-blue)" },
+                  { label: "Storage Cost Cut",         val: "85%",    color: "var(--c-red)" },
                 ].map((m) => (
                   <div key={m.label} className="flex justify-between items-center py-2" style={{ borderBottom: "1px solid rgba(72,72,71,0.15)" }}>
                     <span className="text-xs" style={{ color: "#adaaaa" }}>{m.label}</span>

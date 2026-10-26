@@ -4,7 +4,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { testimonials } from "@/data/portfolio";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const avatarColors: Record<string, string> = { PC: "#ff8f70", AD: "#00bdfd", MM: "#ff7072", RJ: "#facc15" };
+const avatarColors: Record<string, string> = { PC: "var(--c-accent)", AD: "var(--c-blue)", MM: "var(--c-red)", RJ: "var(--c-yellow)" };
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
@@ -24,15 +24,15 @@ export default function Testimonials() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
           className="mb-16 pl-5"
-          style={{ borderLeft: "6px solid #00bdfd" }}
+          style={{ borderLeft: "6px solid var(--c-blue)" }}
         >
-          <span className="hud-label block mb-2" style={{ color: "#00bdfd" }}>Testimonials</span>
+          <span className="hud-label block mb-2" style={{ color: "var(--c-blue)" }}>Testimonials</span>
           <h2
             className="font-black uppercase tracking-tighter"
             style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(2.5rem, 6vw, 4.5rem)", lineHeight: 0.9 }}
           >
             ALLY{" "}
-            <span style={{ color: "#00bdfd", textShadow: "0 0 20px rgba(0,189,253,0.4)" }}>SCROLLS</span>
+            <span style={{ color: "var(--c-blue)", textShadow: "0 0 20px rgba(var(--c-blue-rgb),0.4)" }}>SCROLLS</span>
           </h2>
         </motion.div>
 
@@ -119,7 +119,7 @@ export default function Testimonials() {
                 onClick={() => setCurrent((p) => (p - 1 + testimonials.length) % testimonials.length)}
                 className="p-2.5 transition-all"
                 style={{ background: "#1a1919", border: "1px solid rgba(72,72,71,0.3)", color: "#adaaaa" }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "#262626"; e.currentTarget.style.color = "#ff8f70"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "#262626"; e.currentTarget.style.color = "var(--c-accent)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = "#1a1919"; e.currentTarget.style.color = "#adaaaa"; }}
               >
                 <ChevronLeft size={16} />
@@ -129,7 +129,7 @@ export default function Testimonials() {
                 onClick={() => setCurrent((p) => (p + 1) % testimonials.length)}
                 className="p-2.5 transition-all"
                 style={{ background: "#1a1919", border: "1px solid rgba(72,72,71,0.3)", color: "#adaaaa" }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "#262626"; e.currentTarget.style.color = "#ff8f70"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "#262626"; e.currentTarget.style.color = "var(--c-accent)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = "#1a1919"; e.currentTarget.style.color = "#adaaaa"; }}
               >
                 <ChevronRight size={16} />

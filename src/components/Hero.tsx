@@ -14,8 +14,8 @@ export default function Hero() {
 
       {/* Energy trails */}
       <div className="absolute bottom-0 right-0 w-full h-2/3 pointer-events-none overflow-hidden">
-        <div className="absolute bottom-[-10%] right-[-5%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] rounded-full blur-[100px] md:blur-[120px]" style={{ background: "rgba(255,143,112,0.1)" }} />
-        <div className="absolute top-[20%] right-[10%] w-[200px] md:w-[350px] h-[200px] md:h-[350px] rounded-full blur-[80px] md:blur-[100px]" style={{ background: "rgba(0,189,253,0.1)" }} />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] rounded-full blur-[100px] md:blur-[120px]" style={{ background: "rgba(var(--c-accent-rgb),0.1)" }} />
+        <div className="absolute top-[20%] right-[10%] w-[200px] md:w-[350px] h-[200px] md:h-[350px] rounded-full blur-[80px] md:blur-[100px]" style={{ background: "rgba(var(--c-blue-rgb),0.1)" }} />
       </div>
 
       {/* Corner circle decoration — desktop only */}
@@ -30,7 +30,7 @@ export default function Hero() {
           <span className="hud-label" style={{ color: "#adaaaa" }}>System_Stability</span>
           <div className="flex gap-1">
             {[1,2,3,4,5].map((i) => (
-              <div key={i} className="w-1 h-3" style={{ background: i < 5 ? "#00bdfd" : "#484847" }} />
+              <div key={i} className="w-1 h-3" style={{ background: i < 5 ? "var(--c-blue)" : "#484847" }} />
             ))}
           </div>
         </div>
@@ -47,8 +47,8 @@ export default function Hero() {
         >
           {/* Status badge */}
           <div className="flex items-center gap-3">
-            <span className="block w-8 md:w-12 h-0.5" style={{ background: "#00bdfd" }} />
-            <span className="hud-label text-[10px] md:text-xs" style={{ color: "#00bdfd" }}>STATUS: ACTIVE_OPERATIVE</span>
+            <span className="block w-8 md:w-12 h-0.5" style={{ background: "var(--c-blue)" }} />
+            <span className="hud-label text-[10px] md:text-xs" style={{ color: "var(--c-blue)" }}>STATUS: ACTIVE_OPERATIVE</span>
           </div>
 
           {/* Name */}
@@ -57,16 +57,16 @@ export default function Hero() {
             style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(3rem, 14vw, 8rem)", color: "#ffffff" }}
           >
             SANDEEP<br />
-            <span style={{ color: "#ff8f70", fontStyle: "italic" }}>VAID</span>
+            <span style={{ color: "var(--c-accent)", fontStyle: "italic" }}>VAID</span>
           </h1>
 
           {/* Tagline */}
           <p
             className="text-base md:text-xl leading-relaxed max-w-xl pl-4 md:pl-5 py-2"
-            style={{ color: "#adaaaa", borderLeft: "2px solid rgba(255,143,112,0.35)", fontFamily: "Inter, sans-serif" }}
+            style={{ color: "#adaaaa", borderLeft: "2px solid rgba(var(--c-accent-rgb),0.35)", fontFamily: "Inter, sans-serif" }}
           >
             Software Engineer II · Building{" "}
-            <span className="font-semibold underline" style={{ color: "#ffffff", textDecorationColor: "rgba(0,189,253,0.5)" }}>
+            <span className="font-semibold underline" style={{ color: "#ffffff", textDecorationColor: "rgba(var(--c-blue-rgb),0.5)" }}>
               scalable systems
             </span>{" "}
             with precision and resilience.
@@ -82,7 +82,7 @@ export default function Hero() {
               <div key={s.lbl} className="flex flex-col gap-0.5">
                 <span
                   className="font-black tracking-tighter"
-                  style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(1.5rem, 5vw, 2rem)", color: "#ff8f70" }}
+                  style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(1.5rem, 5vw, 2rem)", color: "var(--c-accent)" }}
                 >
                   {s.val}
                 </span>
@@ -95,13 +95,13 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 pt-1">
             <motion.a
               href="#missions"
-              whileHover={{ scale: 1.04, boxShadow: "0 0 28px rgba(0,189,253,0.4)" }}
+              whileHover={{ scale: 1.04, boxShadow: "0 0 28px rgba(var(--c-blue-rgb),0.4)" }}
               whileTap={{ scale: 0.97 }}
               className="relative px-6 md:px-8 py-3.5 md:py-4 font-black uppercase tracking-tight overflow-hidden group text-center text-sm md:text-base"
-              style={{ fontFamily: "Epilogue, sans-serif", background: "linear-gradient(135deg, #ff8f70, #ff7852)", color: "#5c1300" }}
+              style={{ fontFamily: "Epilogue, sans-serif", background: "linear-gradient(135deg, var(--c-accent), var(--c-accent2))", color: "var(--c-onaccent)" }}
             >
               <span className="relative z-10">ENTER THE JOURNEY</span>
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity" style={{ background: "#00bdfd" }} />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity" style={{ background: "var(--c-blue)" }} />
             </motion.a>
 
             <motion.a
@@ -109,11 +109,11 @@ export default function Hero() {
               whileTap={{ scale: 0.97 }}
               className="px-6 md:px-8 py-3.5 md:py-4 font-black uppercase tracking-tight border flex items-center justify-center gap-2 transition-all text-sm md:text-base"
               style={{ fontFamily: "Epilogue, sans-serif", color: "#ffffff", borderColor: "rgba(72,72,71,0.4)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#00bdfd")}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--c-blue)")}
               onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(72,72,71,0.4)")}
             >
               VIEW ARSENAL
-              <span className="material-symbols-outlined text-sm" style={{ color: "#ff8f70" }}>east</span>
+              <span className="material-symbols-outlined text-sm" style={{ color: "var(--c-accent)" }}>east</span>
             </motion.a>
           </div>
         </motion.div>
@@ -128,7 +128,7 @@ export default function Hero() {
       >
         <span className="hud-label text-[9px] md:text-[10px]" style={{ color: "#484847" }}>SCROLL_DOWN</span>
         <motion.div animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
-          <span className="material-symbols-outlined text-sm" style={{ color: "#ff8f70" }}>expand_more</span>
+          <span className="material-symbols-outlined text-sm" style={{ color: "var(--c-accent)" }}>expand_more</span>
         </motion.div>
       </motion.div>
     </section>

@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { blogs } from "@/data/portfolio";
 
-const rankColors = ["#ff8f70", "#00bdfd", "#ff7072"];
+const rankColors = ["var(--c-accent)", "var(--c-blue)", "var(--c-red)"];
 const rankIcons = ["auto_stories", "code", "hub"];
 const ranks = ["S-Tier Scroll", "A-Tier Scroll", "B-Tier Scroll"];
 
@@ -24,15 +24,15 @@ export default function Blog() {
           className="mb-16"
         >
           <div className="flex items-center gap-4 mb-2">
-            <div className="h-px w-12" style={{ background: "#ff8f70" }} />
-            <span className="hud-label" style={{ color: "#ff8f70" }}>Jutsu Scrolls</span>
+            <div className="h-px w-12" style={{ background: "var(--c-accent)" }} />
+            <span className="hud-label" style={{ color: "var(--c-accent)" }}>Jutsu Scrolls</span>
           </div>
           <h2
             className="font-black uppercase tracking-tighter"
             style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(3rem, 7vw, 5rem)", lineHeight: 0.9 }}
           >
             THE{" "}
-            <span style={{ color: "#ff8f70", textShadow: "0 0 20px rgba(255,143,112,0.4)" }}>ARCHIVE</span>
+            <span style={{ color: "var(--c-accent)", textShadow: "0 0 20px rgba(var(--c-accent-rgb),0.4)" }}>ARCHIVE</span>
           </h2>
           <p className="mt-4 max-w-xl text-base" style={{ color: "#adaaaa" }}>
             Transmissions from the field — battle-tested knowledge scrolls.
@@ -131,7 +131,7 @@ export default function Blog() {
             rel="noopener noreferrer"
             className="flex items-center gap-3 px-8 py-3 transition-all hud-label"
             style={{ background: "#131313", border: "1px solid rgba(72,72,71,0.3)", color: "#adaaaa" }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#ff8f70"; e.currentTarget.style.color = "#ff8f70"; }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--c-accent)"; e.currentTarget.style.color = "var(--c-accent)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(72,72,71,0.3)"; e.currentTarget.style.color = "#adaaaa"; }}
           >
             <span className="material-symbols-outlined text-sm">article</span>

@@ -7,7 +7,7 @@ const breathingStyles = [
   {
     style: "Fire Style",
     icon: "local_fire_department",
-    color: "#ff8f70",
+    color: "var(--c-accent)",
     subtitle: "Backend Arts",
     skills: skills.languages.concat(skills.frameworks.filter((f) => ["Node.js", "Express.js", "Django", "Spring Boot"].includes(f))),
     bgIcon: "fireplace",
@@ -15,7 +15,7 @@ const breathingStyles = [
   {
     style: "Water Style",
     icon: "tsunami",
-    color: "#00bdfd",
+    color: "var(--c-blue)",
     subtitle: "Frontend Arts",
     skills: skills.frameworks.filter((f) => ["React", "Next.js", "Angular", "React Native", "Vue"].includes(f)),
     bgIcon: "waves",
@@ -23,7 +23,7 @@ const breathingStyles = [
   {
     style: "Shadow Style",
     icon: "smart_toy",
-    color: "#a855f7",
+    color: "var(--c-purple)",
     subtitle: "Agentic AI Arts",
     skills: skills.ai,
     bgIcon: "neurology",
@@ -31,7 +31,7 @@ const breathingStyles = [
   {
     style: "Earth Style",
     icon: "landslide",
-    color: "#ff7072",
+    color: "var(--c-red)",
     subtitle: "Database Arts",
     skills: skills.databases,
     bgIcon: "terrain",
@@ -39,7 +39,7 @@ const breathingStyles = [
   {
     style: "Lightning Style",
     icon: "bolt",
-    color: "#facc15",
+    color: "var(--c-yellow)",
     subtitle: "Cloud Arts",
     skills: skills.cloud,
     bgIcon: "thunderstorm",
@@ -64,15 +64,15 @@ export default function Arsenal() {
           className="mb-20"
         >
           <div className="flex items-center gap-4 mb-2">
-            <div className="h-px w-12" style={{ background: "#ff8f70" }} />
-            <span className="hud-label" style={{ color: "#ff8f70" }}>Active Repository</span>
+            <div className="h-px w-12" style={{ background: "var(--c-accent)" }} />
+            <span className="hud-label" style={{ color: "var(--c-accent)" }}>Active Repository</span>
           </div>
           <h2
             className="font-black tracking-tighter uppercase"
             style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(3rem, 8vw, 6rem)", lineHeight: 0.9 }}
           >
             THE{" "}
-            <span style={{ color: "#ff8f70", textShadow: "0 0 24px rgba(255,143,112,0.45)" }}>ARSENAL</span>
+            <span style={{ color: "var(--c-accent)", textShadow: "0 0 24px rgba(var(--c-accent-rgb),0.45)" }}>ARSENAL</span>
           </h2>
           <p className="mt-4 max-w-2xl text-lg" style={{ color: "#adaaaa" }}>
             High-performance modules and specialized tools forged in production environments.
@@ -92,16 +92,16 @@ export default function Arsenal() {
               className="relative p-6 md:p-12 overflow-hidden transition-all duration-500 h-full"
               style={{
                 background: "#262626",
-                border: "1px solid rgba(168,85,247,0.25)",
-                borderTop: "1px solid rgba(168,85,247,0.25)",
-                borderLeft: "1px solid rgba(168,85,247,0.25)",
+                border: "1px solid rgba(var(--c-purple-rgb),0.25)",
+                borderTop: "1px solid rgba(var(--c-purple-rgb),0.25)",
+                borderLeft: "1px solid rgba(var(--c-purple-rgb),0.25)",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 32px rgba(168,85,247,0.18)")}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 32px rgba(var(--c-purple-rgb),0.18)")}
               onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
             >
               <div
                 className="absolute top-0 right-0 p-6 opacity-[0.06] group-hover:opacity-[0.14] transition-opacity"
-                style={{ color: "#a855f7" }}
+                style={{ color: "var(--c-purple)" }}
               >
                 <span className="material-symbols-outlined" style={{ fontSize: "7rem" }}>smart_toy</span>
               </div>
@@ -110,7 +110,7 @@ export default function Arsenal() {
                 <div className="flex items-center gap-3 mb-6">
                   <span
                     className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest"
-                    style={{ background: "rgba(168,85,247,0.15)", color: "#c084fc", borderLeft: "2px solid #a855f7", fontFamily: "Space Grotesk, sans-serif" }}
+                    style={{ background: "rgba(var(--c-purple-rgb),0.15)", color: "var(--c-purple2)", borderLeft: "2px solid var(--c-purple)", fontFamily: "Space Grotesk, sans-serif" }}
                   >
                     Forbidden Jutsu
                   </span>
@@ -133,9 +133,9 @@ export default function Arsenal() {
                       key={t}
                       className="flex items-center gap-2 px-4 py-2 text-xs uppercase"
                       style={{
-                        background: "rgba(168,85,247,0.06)",
-                        color: "#c084fc",
-                        border: "1px solid rgba(168,85,247,0.12)",
+                        background: "rgba(var(--c-purple-rgb),0.06)",
+                        color: "var(--c-purple2)",
+                        border: "1px solid rgba(var(--c-purple-rgb),0.12)",
                         fontFamily: "Space Grotesk, sans-serif",
                         fontWeight: 700,
                         letterSpacing: "0.1em",
@@ -151,8 +151,8 @@ export default function Arsenal() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 font-bold uppercase tracking-tight transition-all group/btn relative overflow-hidden text-sm md:text-base"
-                  style={{ fontFamily: "Epilogue, sans-serif", background: "linear-gradient(135deg, #a855f7, #7c3aed)", color: "#ffffff" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 20px rgba(168,85,247,0.5)")}
+                  style={{ fontFamily: "Epilogue, sans-serif", background: "linear-gradient(135deg, var(--c-purple), var(--c-purple3))", color: "#ffffff" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 20px rgba(var(--c-purple-rgb),0.5)")}
                   onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
                 >
                   INSPECT SCROLL
@@ -171,14 +171,14 @@ export default function Arsenal() {
           >
             <div
               className="p-6 md:p-10 flex-1 transition-all duration-300 relative"
-              style={{ background: "#1a1919", border: "1px solid rgba(0,189,253,0.2)", borderLeft: "2px solid rgba(0,189,253,0.3)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(0,189,253,0.45)")}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(0,189,253,0.2)")}
+              style={{ background: "#1a1919", border: "1px solid rgba(var(--c-blue-rgb),0.2)", borderLeft: "2px solid rgba(var(--c-blue-rgb),0.3)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(var(--c-blue-rgb),0.45)")}
+              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(var(--c-blue-rgb),0.2)")}
             >
               <div className="flex items-center gap-3 mb-5">
                 <span
                   className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest"
-                  style={{ background: "rgba(0,189,253,0.12)", color: "#00bdfd", borderLeft: "2px solid #00bdfd", fontFamily: "Space Grotesk, sans-serif" }}
+                  style={{ background: "rgba(var(--c-blue-rgb),0.12)", color: "var(--c-blue)", borderLeft: "2px solid var(--c-blue)", fontFamily: "Space Grotesk, sans-serif" }}
                 >
                   Special Technique
                 </span>
@@ -194,7 +194,7 @@ export default function Arsenal() {
                   <span
                     key={t}
                     className="px-3 py-1.5 text-[10px] uppercase"
-                    style={{ background: "rgba(0,189,253,0.06)", color: "#00bdfd", border: "1px solid rgba(0,189,253,0.12)", fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, letterSpacing: "0.1em" }}
+                    style={{ background: "rgba(var(--c-blue-rgb),0.06)", color: "var(--c-blue)", border: "1px solid rgba(var(--c-blue-rgb),0.12)", fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, letterSpacing: "0.1em" }}
                   >
                     {t}
                   </span>
@@ -208,19 +208,19 @@ export default function Arsenal() {
                 style={{ color: "#ffffff" }}
               >
                 Code
-                <span className="block h-px w-8 group-hover:w-12 transition-all" style={{ background: "#ff8f70" }} />
-                <span className="material-symbols-outlined text-sm" style={{ color: "#ff8f70" }}>open_in_new</span>
+                <span className="block h-px w-8 group-hover:w-12 transition-all" style={{ background: "var(--c-accent)" }} />
+                <span className="material-symbols-outlined text-sm" style={{ color: "var(--c-accent)" }}>open_in_new</span>
               </a>
             </div>
 
             {/* ETL Pipeline badge */}
             <div
               className="p-5 md:p-6 relative overflow-hidden"
-              style={{ background: "#131313", border: "1px solid rgba(255,112,114,0.2)", borderTop: "3px solid #ff7072" }}
+              style={{ background: "#131313", border: "1px solid rgba(var(--c-red-rgb),0.2)", borderTop: "3px solid var(--c-red)" }}
             >
               <div className="flex items-center justify-between mb-3">
                 <h4 className="font-bold uppercase" style={{ fontFamily: "Epilogue, sans-serif", fontSize: "1.1rem" }}>ETL PIPELINE</h4>
-                <span className="hud-label px-2 py-1 text-[9px]" style={{ background: "#ff7072", color: "#000" }}>100M+ / DAY</span>
+                <span className="hud-label px-2 py-1 text-[9px]" style={{ background: "var(--c-red)", color: "#000" }}>100M+ / DAY</span>
               </div>
               <p className="text-xs leading-relaxed" style={{ color: "#adaaaa" }}>13+ states · UDISE+ APIs · PostgreSQL · Snowflake · 99.9% consistency</p>
             </div>
@@ -238,14 +238,14 @@ export default function Arsenal() {
           >
             <div
               className="p-6 md:p-10 h-full transition-all duration-300 relative"
-              style={{ background: "#1a1919", border: "1px solid rgba(0,189,253,0.2)", borderLeft: "2px solid rgba(0,189,253,0.3)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(0,189,253,0.45)")}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(0,189,253,0.2)")}
+              style={{ background: "#1a1919", border: "1px solid rgba(var(--c-blue-rgb),0.2)", borderLeft: "2px solid rgba(var(--c-blue-rgb),0.3)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(var(--c-blue-rgb),0.45)")}
+              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(var(--c-blue-rgb),0.2)")}
             >
               <div className="flex items-center gap-3 mb-5">
                 <span
                   className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest"
-                  style={{ background: "rgba(0,189,253,0.12)", color: "#00bdfd", borderLeft: "2px solid #00bdfd", fontFamily: "Space Grotesk, sans-serif" }}
+                  style={{ background: "rgba(var(--c-blue-rgb),0.12)", color: "var(--c-blue)", borderLeft: "2px solid var(--c-blue)", fontFamily: "Space Grotesk, sans-serif" }}
                 >
                   Support Ability
                 </span>
@@ -261,7 +261,7 @@ export default function Arsenal() {
                   <span>Efficiency</span><span>98%</span>
                 </div>
                 <div className="w-full h-1" style={{ background: "#000000" }}>
-                  <div className="h-full" style={{ width: "98%", background: "#00bdfd", boxShadow: "0 0 10px rgba(0,189,253,0.6)" }} />
+                  <div className="h-full" style={{ width: "98%", background: "var(--c-blue)", boxShadow: "0 0 10px rgba(var(--c-blue-rgb),0.6)" }} />
                 </div>
               </div>
               <div className="flex gap-4">
@@ -273,8 +273,8 @@ export default function Arsenal() {
                   style={{ color: "#ffffff" }}
                 >
                   Code
-                  <span className="block h-px w-8 group-hover:w-12 transition-all" style={{ background: "#ff8f70" }} />
-                  <span className="material-symbols-outlined text-sm" style={{ color: "#ff8f70" }}>open_in_new</span>
+                  <span className="block h-px w-8 group-hover:w-12 transition-all" style={{ background: "var(--c-accent)" }} />
+                  <span className="material-symbols-outlined text-sm" style={{ color: "var(--c-accent)" }}>open_in_new</span>
                 </a>
                 <a
                   href="https://connector-ea69e.web.app/"
@@ -284,8 +284,8 @@ export default function Arsenal() {
                   style={{ color: "#ffffff" }}
                 >
                   Live
-                  <span className="block h-px w-8 group-hover:w-12 transition-all" style={{ background: "#00bdfd" }} />
-                  <span className="material-symbols-outlined text-sm" style={{ color: "#00bdfd" }}>open_in_new</span>
+                  <span className="block h-px w-8 group-hover:w-12 transition-all" style={{ background: "var(--c-blue)" }} />
+                  <span className="material-symbols-outlined text-sm" style={{ color: "var(--c-blue)" }}>open_in_new</span>
                 </a>
               </div>
             </div>
@@ -300,18 +300,18 @@ export default function Arsenal() {
           >
             <div
               className="p-6 md:p-10 h-full flex flex-col justify-center relative overflow-hidden"
-              style={{ background: "#131313", border: "1px solid rgba(250,204,21,0.2)", borderTop: "3px solid #facc15" }}
+              style={{ background: "#131313", border: "1px solid rgba(var(--c-yellow-rgb),0.2)", borderTop: "3px solid var(--c-yellow)" }}
             >
               <div
                 className="absolute bottom-0 right-0 p-4 opacity-[0.05] pointer-events-none"
-                style={{ color: "#facc15" }}
+                style={{ color: "var(--c-yellow)" }}
               >
                 <span className="material-symbols-outlined" style={{ fontSize: "6rem" }}>bolt</span>
               </div>
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="font-bold uppercase" style={{ fontFamily: "Epilogue, sans-serif", fontSize: "1.4rem" }}>EVENT SERVER</h4>
-                  <span className="hud-label px-2 py-1 text-[9px]" style={{ background: "#facc15", color: "#000" }}>2M+ / S</span>
+                  <span className="hud-label px-2 py-1 text-[9px]" style={{ background: "var(--c-yellow)", color: "#000" }}>2M+ / S</span>
                 </div>
                 <p className="text-sm leading-relaxed" style={{ color: "#adaaaa" }}>
                   A single-threaded event-processing microservice on AWS EC2 — validating and transforming 2M+ events per second for real-time analytics and recommendations.
@@ -329,13 +329,13 @@ export default function Arsenal() {
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
-              <span className="hud-label block mb-2" style={{ color: "#ff7072" }}>Core Expertise</span>
+              <span className="hud-label block mb-2" style={{ color: "var(--c-red)" }}>Core Expertise</span>
               <h2
                 className="font-black tracking-tighter uppercase"
                 style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
               >
                 BREATHING{" "}
-                <span style={{ color: "#ff7072" }}>STYLES</span>
+                <span style={{ color: "var(--c-red)" }}>STYLES</span>
               </h2>
             </div>
             <p className="text-sm italic max-w-xs" style={{ color: "#adaaaa" }}>
@@ -389,12 +389,12 @@ export default function Arsenal() {
 
         {/* Alliance CTA */}
         <div className="mt-16 md:mt-24 p-8 md:p-16 relative overflow-hidden" style={{ background: "#000000" }}>
-          <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none" style={{ background: "linear-gradient(to left, rgba(255,143,112,0.05), transparent)" }} />
+          <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none" style={{ background: "linear-gradient(to left, rgba(var(--c-accent-rgb),0.05), transparent)" }} />
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
             <div className="max-w-xl text-center md:text-left">
               <h2 className="font-black uppercase tracking-tighter mb-4" style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(2rem, 4vw, 3rem)" }}>
                 Forge an{" "}
-                <span style={{ color: "#ff8f70" }}>Alliance</span>
+                <span style={{ color: "var(--c-accent)" }}>Alliance</span>
               </h2>
               <p className="text-lg" style={{ color: "#adaaaa" }}>
                 Looking for a shinobi to join your squad for the next big mission? Let&apos;s discuss strategy.
@@ -404,7 +404,7 @@ export default function Arsenal() {
               href="#summon"
               className="whitespace-nowrap w-full md:w-auto text-center px-8 md:px-10 py-4 md:py-5 font-black uppercase tracking-widest transition-colors"
               style={{ fontFamily: "Epilogue, sans-serif", background: "#ffffff", color: "#0e0e0e" }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = "#ff8f70"; e.currentTarget.style.color = "#5c1300"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "var(--c-accent)"; e.currentTarget.style.color = "var(--c-onaccent)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = "#ffffff"; e.currentTarget.style.color = "#0e0e0e"; }}
             >
               SEND SUMMON

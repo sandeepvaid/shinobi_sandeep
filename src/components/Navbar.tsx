@@ -32,6 +32,24 @@ export default function Navbar() {
     return () => obs.disconnect();
   }, []);
 
+  // ── Theme (naruto | sasuke) ──────────────────────────────────
+  const [theme, setTheme] = useState<"naruto" | "sasuke">("naruto");
+
+  useEffect(() => {
+    let saved: string | null = null;
+    try { saved = localStorage.getItem("theme"); } catch {}
+    const initial = saved === "sasuke" ? "sasuke" : "naruto";
+    setTheme(initial);
+    document.documentElement.setAttribute("data-theme", initial);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = theme === "naruto" ? "sasuke" : "naruto";
+    setTheme(next);
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch {}
+  };
+
   return (
     <>
       {/* ── Top Navbar ───────────────────────────────────────── */}
@@ -50,7 +68,7 @@ export default function Navbar() {
           <a href="#hero" className="flex items-center gap-2">
             <span
               className="font-black tracking-tighter uppercase text-lg md:text-xl"
-              style={{ fontFamily: "Epilogue, sans-serif", color: "#ff8f70", textShadow: "0 0 10px rgba(255,143,112,0.5)" }}
+              style={{ fontFamily: "Epilogue, sans-serif", color: "var(--c-accent)", textShadow: "0 0 10px rgba(var(--c-accent-rgb),0.5)" }}
             >
               SHINOBI_
             </span>
@@ -73,8 +91,8 @@ export default function Navbar() {
                   className="font-black tracking-tighter uppercase text-sm transition-all duration-200 pb-0.5"
                   style={{
                     fontFamily: "Epilogue, sans-serif",
-                    color: isActive ? "#ff8f70" : "#6b7280",
-                    borderBottom: isActive ? "2px solid #ff8f70" : "2px solid transparent",
+                    color: isActive ? "var(--c-accent)" : "#6b7280",
+                    borderBottom: isActive ? "2px solid var(--c-accent)" : "2px solid transparent",
                   }}
                 >
                   {l.label}
@@ -83,29 +101,58 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Resume CTA — desktop */}
+          {/* Resume CTA + theme switch — desktop */}
           <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === "naruto" ? "Sasuke" : "Naruto"} theme`}
+              title={`Theme: ${theme.toUpperCase()} — click to switch`}
+              className="group flex items-center gap-2 px-3 py-2 border transition-all"
+              style={{ borderColor: "rgba(var(--c-accent-rgb),0.4)", background: "rgba(var(--c-accent-rgb),0.06)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--c-accent)")}
+              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(var(--c-accent-rgb),0.4)")}
+            >
+              <span className="material-symbols-outlined text-base" style={{ color: "var(--c-accent)" }}>
+                {theme === "naruto" ? "local_fire_department" : "bolt"}
+              </span>
+              <span className="hud-label" style={{ color: "var(--c-accent)" }}>{theme}</span>
+              <span className="material-symbols-outlined text-sm" style={{ color: "#6b7280" }}>sync_alt</span>
+            </button>
+
             <motion.a
               href="https://drive.google.com/file/d/1jws5zPP-XY8fY7bQuiqvpR-5mxnF0u6J/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.04, boxShadow: "0 0 20px rgba(255,143,112,0.4)" }}
+              whileHover={{ scale: 1.04, boxShadow: "0 0 20px rgba(var(--c-accent-rgb),0.4)" }}
               whileTap={{ scale: 0.97 }}
               className="px-5 py-2 font-black uppercase text-sm tracking-tight"
-              style={{ fontFamily: "Epilogue, sans-serif", background: "linear-gradient(135deg, #ff8f70, #ff7852)", color: "#480d00" }}
+              style={{ fontFamily: "Epilogue, sans-serif", background: "linear-gradient(135deg, var(--c-accent), var(--c-accent2))", color: "var(--c-onaccent-deep)" }}
             >
               GET SCROLL
             </motion.a>
           </div>
 
-          {/* Hamburger — mobile only */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden text-white p-2 -mr-1"
-            aria-label="Toggle menu"
-          >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          {/* Theme switch + hamburger — mobile only */}
+          <div className="md:hidden flex items-center gap-1">
+            <button
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === "naruto" ? "Sasuke" : "Naruto"} theme`}
+              className="flex items-center gap-1 px-2 py-1.5 border"
+              style={{ borderColor: "rgba(var(--c-accent-rgb),0.4)", background: "rgba(var(--c-accent-rgb),0.06)" }}
+            >
+              <span className="material-symbols-outlined text-base" style={{ color: "var(--c-accent)" }}>
+                {theme === "naruto" ? "local_fire_department" : "bolt"}
+              </span>
+              <span className="hud-label text-[9px]" style={{ color: "var(--c-accent)" }}>{theme}</span>
+            </button>
+            <button
+              onClick={() => setOpen(!open)}
+              className="text-white p-2 -mr-1"
+              aria-label="Toggle menu"
+            >
+              {open ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -135,9 +182,9 @@ export default function Navbar() {
                     className="flex items-center gap-3 px-4 py-3 font-black uppercase text-sm tracking-tight transition-all"
                     style={{
                       fontFamily: "Epilogue, sans-serif",
-                      color: isActive ? "#ff8f70" : "#6b7280",
-                      background: isActive ? "rgba(255,143,112,0.08)" : "transparent",
-                      borderLeft: isActive ? "2px solid #ff8f70" : "2px solid transparent",
+                      color: isActive ? "var(--c-accent)" : "#6b7280",
+                      background: isActive ? "rgba(var(--c-accent-rgb),0.08)" : "transparent",
+                      borderLeft: isActive ? "2px solid var(--c-accent)" : "2px solid transparent",
                     }}
                   >
                     <span className="material-symbols-outlined text-base">{l.mobileIcon}</span>
@@ -151,7 +198,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="mt-3 mx-4 px-4 py-3 font-black uppercase text-sm text-center flex items-center justify-center gap-2"
-                style={{ fontFamily: "Epilogue, sans-serif", background: "linear-gradient(135deg, #ff8f70, #ff7852)", color: "#480d00" }}
+                style={{ fontFamily: "Epilogue, sans-serif", background: "linear-gradient(135deg, var(--c-accent), var(--c-accent2))", color: "var(--c-onaccent-deep)" }}
               >
                 <span className="material-symbols-outlined text-base">download</span>
                 GET SCROLL (RESUME)
@@ -181,10 +228,10 @@ export default function Navbar() {
               href={l.href}
               className="flex flex-col items-center justify-center gap-1 px-3 py-1.5 rounded-xl transition-all"
               style={{
-                background: isActive ? "rgba(255,143,112,0.12)" : "transparent",
-                color: isActive ? "#ff8f70" : "#6b7280",
+                background: isActive ? "rgba(var(--c-accent-rgb),0.12)" : "transparent",
+                color: isActive ? "var(--c-accent)" : "#6b7280",
                 minWidth: 52,
-                boxShadow: isActive ? "0 0 14px rgba(255,143,112,0.2)" : "none",
+                boxShadow: isActive ? "0 0 14px rgba(var(--c-accent-rgb),0.2)" : "none",
               }}
             >
               <span className="material-symbols-outlined text-xl">{l.mobileIcon}</span>
@@ -202,10 +249,10 @@ export default function Navbar() {
       {/* ── Desktop side social bar ───────────────────────────── */}
       <aside
         className="hidden lg:flex fixed right-5 top-1/2 -translate-y-1/2 z-40 flex-col gap-5 p-4"
-        style={{ background: "#131313", borderLeft: "3px solid #ff7072", borderRadius: "4px", boxShadow: "0 24px 48px rgba(0,0,0,0.5)" }}
+        style={{ background: "#131313", borderLeft: "3px solid var(--c-red)", borderRadius: "4px", boxShadow: "0 24px 48px rgba(0,0,0,0.5)" }}
       >
         <div className="flex flex-col items-center gap-1 mb-1">
-          <span className="hud-label" style={{ color: "#ff7072", fontSize: "8px" }}>SCROLL</span>
+          <span className="hud-label" style={{ color: "var(--c-red)", fontSize: "8px" }}>SCROLL</span>
         </div>
         {[
           { label: "GITHUB", href: "https://github.com/sandeepvaid",                      icon: "code"        },
@@ -219,7 +266,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="flex flex-col items-center gap-1 p-2 rounded transition-all duration-200"
             style={{ color: "#6b7280" }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = "#ff7072"; e.currentTarget.style.background = "rgba(255,112,114,0.1)"; e.currentTarget.style.transform = "translateX(-3px)"; }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = "var(--c-red)"; e.currentTarget.style.background = "rgba(var(--c-red-rgb),0.1)"; e.currentTarget.style.transform = "translateX(-3px)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.color = "#6b7280"; e.currentTarget.style.background = "transparent"; e.currentTarget.style.transform = "translateX(0)"; }}
           >
             <span className="material-symbols-outlined text-base">{s.icon}</span>

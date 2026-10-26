@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { experiences } from "@/data/portfolio";
 
-const missionColors = ["#00bdfd", "#ff8f70", "#ff7072"];
+const missionColors = ["var(--c-blue)", "var(--c-accent)", "var(--c-red)"];
 const missionIcons = ["terminal", "brush", "settings_input_component"];
 const missionBadges = ["Active Mission", "Completed Arc", "Legend Arc"];
 
@@ -24,14 +24,14 @@ export default function Experience() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55 }}
           className="mb-20 pl-5"
-          style={{ borderLeft: "8px solid #ff8f70" }}
+          style={{ borderLeft: "8px solid var(--c-accent)" }}
         >
-          <p className="hud-label mb-2" style={{ color: "#ff8f70" }}>Chronicle of Growth</p>
+          <p className="hud-label mb-2" style={{ color: "var(--c-accent)" }}>Chronicle of Growth</p>
           <h2
             className="font-black tracking-tighter uppercase"
             style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(3rem, 8vw, 6rem)", lineHeight: 0.9 }}
           >
-            <span style={{ textShadow: "0 0 20px rgba(255,143,112,0.35)" }}>TRAINING &amp;</span>{" "}
+            <span style={{ textShadow: "0 0 20px rgba(var(--c-accent-rgb),0.35)" }}>TRAINING &amp;</span>{" "}
             MISSIONS
           </h2>
         </motion.div>
@@ -41,7 +41,7 @@ export default function Experience() {
           {/* Center line */}
           <div
             className="absolute hidden md:block"
-            style={{ left: "calc(25% - 0.5px)", top: 0, bottom: 0, width: 1, background: "linear-gradient(to bottom, #ff8f70, #00bdfd, transparent)", opacity: 0.2 }}
+            style={{ left: "calc(25% - 0.5px)", top: 0, bottom: 0, width: 1, background: "linear-gradient(to bottom, var(--c-accent), var(--c-blue), transparent)", opacity: 0.2 }}
           />
 
           {experiences.map((exp, i) => (
@@ -57,7 +57,7 @@ export default function Experience() {
                 {i === 0 && (
                   <div
                     className="inline-flex items-center gap-1.5 px-3 py-1 mb-3 text-[10px] font-bold uppercase tracking-wider"
-                    style={{ background: "rgba(255,143,112,0.15)", color: "#ff8f70", borderLeft: "2px solid #ff8f70" }}
+                    style={{ background: "rgba(var(--c-accent-rgb),0.15)", color: "var(--c-accent)", borderLeft: "2px solid var(--c-accent)" }}
                   >
                     <span className="material-symbols-outlined text-sm">bolt</span>
                     Active Mission
@@ -100,7 +100,7 @@ export default function Experience() {
                       {i === 2 && (
                         <div
                           className="absolute top-3 right-3 px-2 py-1 rotate-12 hud-label"
-                          style={{ background: "#ff7072", color: "#000000" }}
+                          style={{ background: "var(--c-red)", color: "#000000" }}
                         >
                           2M+ EVENTS/S
                         </div>
@@ -180,7 +180,7 @@ export default function Experience() {
           className="mt-24 text-center py-20 relative overflow-hidden"
           style={{ background: "#000000" }}
         >
-          <span className="material-symbols-outlined text-5xl mb-4 block" style={{ color: "#ff8f70" }}>workspace_premium</span>
+          <span className="material-symbols-outlined text-5xl mb-4 block" style={{ color: "var(--c-accent)" }}>workspace_premium</span>
           <h3
             className="font-black uppercase tracking-tighter mb-8"
             style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
@@ -191,8 +191,8 @@ export default function Experience() {
             <a
               href="#summon"
               className="px-10 py-4 font-bold uppercase tracking-widest transition-all hud-label"
-              style={{ background: "linear-gradient(135deg, #ff8f70, #ff7852)", color: "#5c1300" }}
-              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 24px rgba(0,189,253,0.4)")}
+              style={{ background: "linear-gradient(135deg, var(--c-accent), var(--c-accent2))", color: "var(--c-onaccent)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 24px rgba(var(--c-blue-rgb),0.4)")}
               onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
             >
               REQUEST SCROLL
@@ -203,7 +203,7 @@ export default function Experience() {
               style={{ border: "1px solid rgba(119,119,117,0.5)", color: "#ffffff" }}
             >
               VIEW ARSENAL
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-full transition-all duration-300" style={{ background: "#ff8f70" }} />
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-full transition-all duration-300" style={{ background: "var(--c-accent)" }} />
             </a>
           </div>
         </motion.div>
