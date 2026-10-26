@@ -65,7 +65,7 @@ export default function Hero() {
             className="text-base md:text-xl leading-relaxed max-w-xl pl-4 md:pl-5 py-2"
             style={{ color: "#adaaaa", borderLeft: "2px solid rgba(255,143,112,0.35)", fontFamily: "Inter, sans-serif" }}
           >
-            Software Developer · Building{" "}
+            Software Engineer II · Building{" "}
             <span className="font-semibold underline" style={{ color: "#ffffff", textDecorationColor: "rgba(0,189,253,0.5)" }}>
               scalable systems
             </span>{" "}
@@ -75,9 +75,9 @@ export default function Hero() {
           {/* Stats row */}
           <div className="flex flex-wrap gap-6 md:gap-8 py-1">
             {[
-              { val: "100M+", lbl: "Records Processed" },
-              { val: "50K/s", lbl: "Req / Second" },
-              { val: "80%",   lbl: "Ops Automated" },
+              { val: "100M+", lbl: "Records / Day" },
+              { val: "2M+/s", lbl: "Events / Second" },
+              { val: "13+",   lbl: "States Served" },
             ].map((s) => (
               <div key={s.lbl} className="flex flex-col gap-0.5">
                 <span

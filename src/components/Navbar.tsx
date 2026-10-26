@@ -86,7 +86,7 @@ export default function Navbar() {
           {/* Resume CTA — desktop */}
           <div className="hidden md:flex items-center gap-3">
             <motion.a
-              href="https://drive.google.com/file/d/1gkwnmeqDodep2JGRj2vBPwzvTjAAdO4-/view?usp=sharing"
+              href="https://drive.google.com/file/d/1jws5zPP-XY8fY7bQuiqvpR-5mxnF0u6J/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.04, boxShadow: "0 0 20px rgba(255,143,112,0.4)" }}
@@ -146,7 +146,7 @@ export default function Navbar() {
                 );
               })}
               <a
-                href="https://drive.google.com/file/d/1gkwnmeqDodep2JGRj2vBPwzvTjAAdO4-/view?usp=sharing"
+                href="https://drive.google.com/file/d/1jws5zPP-XY8fY7bQuiqvpR-5mxnF0u6J/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}

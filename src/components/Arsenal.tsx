@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { projects, skills } from "@/data/portfolio";
+import { skills } from "@/data/portfolio";
 
 const breathingStyles = [
   {
@@ -9,7 +9,7 @@ const breathingStyles = [
     icon: "local_fire_department",
     color: "#ff8f70",
     subtitle: "Backend Arts",
-    skills: skills.languages.concat(skills.frameworks.filter((f) => ["Node.js", "Express.js", "Django", "Dropwizard"].includes(f))),
+    skills: skills.languages.concat(skills.frameworks.filter((f) => ["Node.js", "Express.js", "Django", "Spring Boot"].includes(f))),
     bgIcon: "fireplace",
   },
   {
@@ -17,8 +17,16 @@ const breathingStyles = [
     icon: "tsunami",
     color: "#00bdfd",
     subtitle: "Frontend Arts",
-    skills: skills.frameworks.filter((f) => ["React", "Next.js", "Angular", "React Native"].includes(f)),
+    skills: skills.frameworks.filter((f) => ["React", "Next.js", "Angular", "React Native", "Vue"].includes(f)),
     bgIcon: "waves",
+  },
+  {
+    style: "Shadow Style",
+    icon: "smart_toy",
+    color: "#a855f7",
+    subtitle: "Agentic AI Arts",
+    skills: skills.ai,
+    bgIcon: "neurology",
   },
   {
     style: "Earth Style",
@@ -72,8 +80,8 @@ export default function Arsenal() {
         </motion.header>
 
         {/* Projects — asymmetric grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-20 md:mb-32">
-          {/* Chatter - big card */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5">
+          {/* Agentic AI Lab — big featured card (RAG) */}
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -81,53 +89,53 @@ export default function Arsenal() {
             className="lg:col-span-7 group"
           >
             <div
-              className="relative p-6 md:p-12 overflow-hidden transition-all duration-500"
+              className="relative p-6 md:p-12 overflow-hidden transition-all duration-500 h-full"
               style={{
                 background: "#262626",
-                border: "1px solid rgba(72,72,71,0.2)",
-                borderTop: "1px solid rgba(72,72,71,0.2)",
-                borderLeft: "1px solid rgba(72,72,71,0.2)",
+                border: "1px solid rgba(168,85,247,0.25)",
+                borderTop: "1px solid rgba(168,85,247,0.25)",
+                borderLeft: "1px solid rgba(168,85,247,0.25)",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 32px rgba(255,143,112,0.15)")}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 32px rgba(168,85,247,0.18)")}
               onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
             >
               <div
                 className="absolute top-0 right-0 p-6 opacity-[0.06] group-hover:opacity-[0.14] transition-opacity"
-                style={{ color: "#ffffff" }}
+                style={{ color: "#a855f7" }}
               >
-                <span className="material-symbols-outlined" style={{ fontSize: "7rem" }}>cyclone</span>
+                <span className="material-symbols-outlined" style={{ fontSize: "7rem" }}>smart_toy</span>
               </div>
 
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
                   <span
                     className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest"
-                    style={{ background: "rgba(255,143,112,0.15)", color: "#ff8f70", borderLeft: "2px solid #ff8f70", fontFamily: "Space Grotesk, sans-serif" }}
+                    style={{ background: "rgba(168,85,247,0.15)", color: "#c084fc", borderLeft: "2px solid #a855f7", fontFamily: "Space Grotesk, sans-serif" }}
                   >
-                    Special Technique
+                    Forbidden Jutsu
                   </span>
                   <span className="hud-label" style={{ color: "rgba(255,255,255,0.2)" }}>Rank: S-Tier</span>
                 </div>
 
                 <h3
                   className="font-black uppercase tracking-tighter mb-5"
-                  style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}
+                  style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(2.25rem, 5vw, 3.5rem)" }}
                 >
-                  CHATTER
+                  AGENTIC AI LAB
                 </h3>
                 <p className="text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-lg" style={{ color: "#adaaaa" }}>
-                  A high-concurrency Social Media Server architected for horizontal scale. Features robust Auth protocols, resilient Message Queues, and dynamic social graph synchronization.
+                  RAG pipelines — chunking, embeddings, and vector retrieval — built as multi-step LangGraph flows with conditional routing and tool nodes. Features PGVector semantic search and SQL / calculator tool-calling agents.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-8">
-                  {["MongoDB", "Node.js", "Express.js"].map((t) => (
+                  {["Node.js", "TypeScript", "LangGraph", "PGVector", "OpenAI", "Claude"].map((t) => (
                     <span
                       key={t}
                       className="flex items-center gap-2 px-4 py-2 text-xs uppercase"
                       style={{
-                        background: "rgba(0,189,253,0.06)",
-                        color: "#00bdfd",
-                        border: "1px solid rgba(0,189,253,0.12)",
+                        background: "rgba(168,85,247,0.06)",
+                        color: "#c084fc",
+                        border: "1px solid rgba(168,85,247,0.12)",
                         fontFamily: "Space Grotesk, sans-serif",
                         fontWeight: 700,
                         letterSpacing: "0.1em",
@@ -139,12 +147,12 @@ export default function Arsenal() {
                 </div>
 
                 <a
-                  href="https://github.com/sandeepvaid/Chatter"
+                  href="https://github.com/sandeepvaid/learning-agentic-ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 font-bold uppercase tracking-tight transition-all group/btn relative overflow-hidden text-sm md:text-base"
-                  style={{ fontFamily: "Epilogue, sans-serif", background: "linear-gradient(135deg, #ff8f70, #ff7852)", color: "#5c1300" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 20px rgba(0,189,253,0.4)")}
+                  style={{ fontFamily: "Epilogue, sans-serif", background: "linear-gradient(135deg, #a855f7, #7c3aed)", color: "#ffffff" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 20px rgba(168,85,247,0.5)")}
                   onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
                 >
                   INSPECT SCROLL
@@ -154,7 +162,7 @@ export default function Arsenal() {
             </div>
           </motion.div>
 
-          {/* Connector */}
+          {/* Right column — Chatter + ETL badge */}
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -172,16 +180,83 @@ export default function Arsenal() {
                   className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest"
                   style={{ background: "rgba(0,189,253,0.12)", color: "#00bdfd", borderLeft: "2px solid #00bdfd", fontFamily: "Space Grotesk, sans-serif" }}
                 >
+                  Special Technique
+                </span>
+              </div>
+              <h3 className="font-black uppercase tracking-tighter mb-4" style={{ fontFamily: "Epilogue, sans-serif", fontSize: "2rem" }}>
+                CHATTER
+              </h3>
+              <p className="leading-relaxed mb-6" style={{ color: "#adaaaa" }}>
+                A high-concurrency social media server architected for horizontal scale — robust auth protocols, resilient message queues, and dynamic social-graph synchronization.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {["MongoDB", "Node.js", "Express.js"].map((t) => (
+                  <span
+                    key={t}
+                    className="px-3 py-1.5 text-[10px] uppercase"
+                    style={{ background: "rgba(0,189,253,0.06)", color: "#00bdfd", border: "1px solid rgba(0,189,253,0.12)", fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, letterSpacing: "0.1em" }}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <a
+                href="https://github.com/sandeepvaid/Chatter"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hud-label group transition-colors"
+                style={{ color: "#ffffff" }}
+              >
+                Code
+                <span className="block h-px w-8 group-hover:w-12 transition-all" style={{ background: "#ff8f70" }} />
+                <span className="material-symbols-outlined text-sm" style={{ color: "#ff8f70" }}>open_in_new</span>
+              </a>
+            </div>
+
+            {/* ETL Pipeline badge */}
+            <div
+              className="p-5 md:p-6 relative overflow-hidden"
+              style={{ background: "#131313", border: "1px solid rgba(255,112,114,0.2)", borderTop: "3px solid #ff7072" }}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="font-bold uppercase" style={{ fontFamily: "Epilogue, sans-serif", fontSize: "1.1rem" }}>ETL PIPELINE</h4>
+                <span className="hud-label px-2 py-1 text-[9px]" style={{ background: "#ff7072", color: "#000" }}>100M+ / DAY</span>
+              </div>
+              <p className="text-xs leading-relaxed" style={{ color: "#adaaaa" }}>13+ states · UDISE+ APIs · PostgreSQL · Snowflake · 99.9% consistency</p>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Projects — secondary row */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-20 md:mb-32">
+          {/* Connector */}
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.55, delay: 0.25 }}
+            className="lg:col-span-7"
+          >
+            <div
+              className="p-6 md:p-10 h-full transition-all duration-300 relative"
+              style={{ background: "#1a1919", border: "1px solid rgba(0,189,253,0.2)", borderLeft: "2px solid rgba(0,189,253,0.3)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(0,189,253,0.45)")}
+              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(0,189,253,0.2)")}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <span
+                  className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest"
+                  style={{ background: "rgba(0,189,253,0.12)", color: "#00bdfd", borderLeft: "2px solid #00bdfd", fontFamily: "Space Grotesk, sans-serif" }}
+                >
                   Support Ability
                 </span>
               </div>
               <h3 className="font-black uppercase tracking-tighter mb-4" style={{ fontFamily: "Epilogue, sans-serif", fontSize: "2rem" }}>
                 CONNECTOR
               </h3>
-              <p className="leading-relaxed mb-8" style={{ color: "#adaaaa" }}>
+              <p className="leading-relaxed mb-8 max-w-lg" style={{ color: "#adaaaa" }}>
                 A precision-engineered React SPA focused on state synchronization. Optimized using Custom Hooks and Context API for zero-lag interaction.
               </p>
-              <div className="mb-8">
+              <div className="mb-8 max-w-sm">
                 <div className="flex justify-between items-center text-xs mb-2" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "Space Grotesk, sans-serif", textTransform: "uppercase", letterSpacing: "0.1em" }}>
                   <span>Efficiency</span><span>98%</span>
                 </div>
@@ -214,18 +289,34 @@ export default function Arsenal() {
                 </a>
               </div>
             </div>
+          </motion.div>
 
-            {/* ETL Pipeline badge */}
+          {/* Event Server badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.55, delay: 0.3 }}
+            className="lg:col-span-5"
+          >
             <div
-              className="p-5 md:p-6 relative overflow-hidden"
-              style={{ background: "#131313", border: "1px solid rgba(255,112,114,0.2)", borderTop: "3px solid #ff7072" }}
+              className="p-6 md:p-10 h-full flex flex-col justify-center relative overflow-hidden"
+              style={{ background: "#131313", border: "1px solid rgba(250,204,21,0.2)", borderTop: "3px solid #facc15" }}
             >
-              {/* Badge — inline on mobile instead of rotated absolute to avoid overflow */}
-              <div className="flex items-center justify-between mb-3">
-                <h4 className="font-bold uppercase" style={{ fontFamily: "Epilogue, sans-serif", fontSize: "1.1rem" }}>ETL PIPELINE</h4>
-                <span className="hud-label px-2 py-1 text-[9px]" style={{ background: "#ff7072", color: "#000" }}>50K REQ/S</span>
+              <div
+                className="absolute bottom-0 right-0 p-4 opacity-[0.05] pointer-events-none"
+                style={{ color: "#facc15" }}
+              >
+                <span className="material-symbols-outlined" style={{ fontSize: "6rem" }}>bolt</span>
               </div>
-              <p className="text-xs leading-relaxed" style={{ color: "#adaaaa" }}>100M+ records · PostgreSQL · Redis · AWS · Fault-tolerant</p>
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="font-bold uppercase" style={{ fontFamily: "Epilogue, sans-serif", fontSize: "1.4rem" }}>EVENT SERVER</h4>
+                  <span className="hud-label px-2 py-1 text-[9px]" style={{ background: "#facc15", color: "#000" }}>2M+ / S</span>
+                </div>
+                <p className="text-sm leading-relaxed" style={{ color: "#adaaaa" }}>
+                  A single-threaded event-processing microservice on AWS EC2 — validating and transforming 2M+ events per second for real-time analytics and recommendations.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -252,7 +343,7 @@ export default function Arsenal() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
             {breathingStyles.map((bs, i) => (
               <motion.div
                 key={bs.style}

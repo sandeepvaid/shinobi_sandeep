@@ -220,9 +220,9 @@ export default function About() {
               <div className="p-6 md:p-8 flex flex-col justify-center" style={{ background: "#1a1919", border: "1px solid rgba(72,72,71,0.1)" }}>
                 <span className="hud-label mb-4" style={{ color: "#ff8f70" }}>Combat Metrics</span>
                 {[
-                  { label: "ETL Pipeline Scale",       val: "100M+",  color: "#ff8f70" },
-                  { label: "Event Server Throughput",  val: "50K/s",  color: "#00bdfd" },
-                  { label: "Workload Reduction",       val: "80%",    color: "#ff7072" },
+                  { label: "ETL Records / Day",        val: "100M+",  color: "#ff8f70" },
+                  { label: "Event Throughput",         val: "2M+/s",  color: "#00bdfd" },
+                  { label: "Storage Cost Cut",         val: "85%",    color: "#ff7072" },
                 ].map((m) => (
                   <div key={m.label} className="flex justify-between items-center py-2" style={{ borderBottom: "1px solid rgba(72,72,71,0.15)" }}>
                     <span className="text-xs" style={{ color: "#adaaaa" }}>{m.label}</span>

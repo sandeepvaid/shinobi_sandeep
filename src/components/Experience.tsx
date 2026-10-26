@@ -102,7 +102,7 @@ export default function Experience() {
                           className="absolute top-3 right-3 px-2 py-1 rotate-12 hud-label"
                           style={{ background: "#ff7072", color: "#000000" }}
                         >
-                          50K REQ/S
+                          2M+ EVENTS/S
                         </div>
                       )}
                     </div>

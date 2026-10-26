@@ -1,53 +1,56 @@
 export const personalInfo = {
   name: "Sandeep Vaid",
-  title: "Software Developer",
+  title: "Software Engineer II",
   tagline: "Building scalable systems that power the future",
   email: "vaid77167@gmail.com",
   phone: "+917006549295",
   github: "https://github.com/sandeepvaid",
   linkedin: "https://www.linkedin.com/in/sandeep-vaid623/",
+  leetcode: "https://leetcode.com/u/sandeep623/",
   location: "India",
-  about: `I'm a passionate Software Developer with expertise in building scalable backend systems, cloud-native infrastructure, and full-stack web applications. From architecting ETL pipelines that process 100M+ records to engineering real-time platforms — I turn complex engineering challenges into elegant, production-grade solutions.`,
+  about: `I'm a Software Engineer specializing in scalable backend systems, cloud-native infrastructure, agentic AI, and full-stack platforms. From architecting fault-tolerant ETL pipelines that ingest 100M+ records daily to building RAG retrieval services and high-throughput event processors — I turn complex engineering challenges into elegant, production-grade solutions.`,
   aboutPoints: [
-    "Architected ETL pipelines processing 100M+ records with 99.9% consistency",
-    "Built cloud-native backends using AWS Lambda, DynamoDB, and CloudWatch",
-    "Full-stack expertise across React, Node.js, PostgreSQL, and more",
-    "Passionate about system design, performance, and developer experience",
+    "Architected a fault-tolerant ETL pipeline ingesting 100M+ records daily across 13+ states with 99.9% consistency",
+    "Built RAG retrieval and agentic AI platforms with LangGraph, PGVector, and LLM APIs",
+    "Engineered cloud-native systems across AWS Lambda, ECS, EKS, Snowflake, and Redshift",
+    "Full-stack & mobile expertise across React, Next.js, Node.js, React Native, and PostgreSQL",
   ],
 };
 
 export const experiences = [
   {
     id: 1,
-    role: "Software Developer 2",
+    role: "Software Engineer II",
     company: "ConveGenius",
     duration: "June 2024 – Present",
-    location: "Remote",
+    location: "India",
     color: "#6366f1",
     highlights: [
-      "Architected and deployed a scalable ETL pipeline integrating NIC UDISE+ APIs, ingesting 100M+ records across student, school, teaching datasets",
-      "Engineered fault-tolerant data migration architecture using PostgreSQL transactions, staging tables, rollback safety, and Redis caching — ensuring 99.9% consistency",
-      "Built production-grade monitoring and recovery system featuring Cron-based scheduling, health check endpoints, CloudWatch error logging, and retry logic with exponential backoff",
-      "Built a modular, community-driven training platform enabling teachers to create sessions, share resources, and track attendance with preassigned S3 URLs",
-      "Engineered cloud-native backend infrastructure using AWS Lambda, DynamoDB, and CloudWatch supporting scalable session management",
+      "Architected and scaled a full-fledged EdTech MIS platform across 13+ states — covering data cleaning, quality monitoring, leave management, service management, and user onboarding",
+      "Architected a fault-tolerant ETL pipeline ingesting 100M+ records daily across 13+ states from UDISE+ APIs with parallel batch extraction and transactional PostgreSQL staging, achieving 99.9% consistency",
+      "Built state-level data warehouses resolving legacy data-quality issues and creating trusted government data assets for fund-allocation decisions — making the MIS a key revenue-generating product",
+      "Built a shared RAG retrieval service for 5+ internal apps with PII redaction and tenant-scoped access, plus an eval platform comparing chunking, embedding models, top-k, and rerankers",
+      "Designed an audit-trail SDK adopted by 10+ services with batched async flushes, backoff retries, and a durable dead-letter queue; streamed events via Firehose to S3, Redshift, and Snowflake",
+      "Built a config-driven scheduler for 10 cron jobs across PostgreSQL and S3 with an audit ledger; enforced GDPR and tiered retention via S3/Snowflake, cutting storage costs by 85%",
+      "Operated 10+ AWS accounts with environment isolation — matching Lambda to short event-triggered workloads and ECS/EKS to long-running jobs, cutting compute spend",
     ],
-    tech: ["Node.js", "PostgreSQL", "Redis", "AWS Lambda", "DynamoDB", "CloudWatch", "S3"],
+    tech: ["Node.js", "TypeScript", "PostgreSQL", "Snowflake", "Redshift", "Airflow", "AWS Lambda", "ECS", "RAG", "LangGraph"],
   },
   {
     id: 2,
     role: "Full-Stack Developer",
-    company: "Travel Corporation of India",
+    company: "Travel Corporation of India (TCI)",
     duration: "May 2023 – June 2024",
-    location: "India",
+    location: "Gurugram, India",
     color: "#8b5cf6",
     highlights: [
-      "Spearheaded development to deployment of a customizable React theme-editor using hooks, Redux, and Saga for itinerary details",
-      "Orchestrated end-to-end implementation of Guide products across backend, frontend, and mobile app platforms",
-      "Integrated AWS Cognito for advanced authentication capabilities and developed lambda functions for bespoke auth logic",
-      "Engineered advanced search algorithms for guides, reducing search times by 2.35 seconds through intelligent filtering",
-      "Contributed to the guide mobile app built with React Native and published it on the Play Store",
+      "Architected and delivered a Guide Management Platform spanning web, backend microservices, and React Native apps — with onboarding, service management, leave, assignment, location tracking, and feedback; published on the Google Play Store and Apple App Store",
+      "Built a scalable, highly customizable itinerary-generation web app with multilingual support and reusable themes — cutting travel-agent itinerary creation time by 98% and contributing to a 35% reduction in overall company costs",
+      "Built the client-facing Offering Platform end-to-end, generating the reports business teams use to finalize client deals — the platform has generated reports worth INR 1 Billion+ per annum",
+      "Led the re-development of the Booking Platform, re-architecting the complex booking-status calculation and management microservice",
+      "Integrated AWS Cognito OAuth with custom Lambda authentication; engineered advanced search and filtering across date, type, language, location, and booking status — cutting search time by 2.35s",
     ],
-    tech: ["React", "React Native", "Redux", "AWS Cognito", "Lambda", "Node.js"],
+    tech: ["React", "React Native", "Redux", "Redux-Saga", "AWS Cognito", "Lambda", "Node.js"],
   },
   {
     id: 3,
@@ -57,14 +60,12 @@ export const experiences = [
     location: "India",
     color: "#a855f7",
     highlights: [
-      "Crafted a service layer serving multiple platform components — configuration management, dashboard management, and task & dependency management, reducing manual workload by 80%",
-      "Built an Administration Console with robust role-based authentication for configuration management and monitoring",
-      "Created a Discount tool for dynamic user discounts per sales team requirements",
-      "Optimized Performance of Event Server Implementation with schema validation, enabling 50,000 requests/second",
-      "Built image-to-text extractor for creating recommendations based on extracted attributes",
-      "Developed expertise using Google Tag Manager for advanced configurations and real-time behavioral data collection",
+      "Built a centralized admin console integrating microservices, Airflow DAGs, scheduled ETL pipelines, and CloudWatch monitoring — automating client onboarding, billing, subscriptions, and revenue calculations behind RBAC",
+      "Integrated Google Tag Manager with a custom single-threaded event-processing microservice on AWS EC2, validating and transforming 2M+ events/second for analytics and recommendations",
+      "Built a browser-based, VS Code-like editor for Shopify Liquid with multi-file editing, autosave, session management, and codebase search",
+      "Built an image-to-text OCR pipeline powering AI product recommendations",
     ],
-    tech: ["Angular", "Node.js", "Shopify", "Google Tag Manager", "JavaScript"],
+    tech: ["Angular", "Node.js", "AWS EC2", "Airflow", "Shopify", "Google Tag Manager", "JavaScript"],
   },
 ];
 
@@ -104,23 +105,35 @@ export const projects = [
   },
   {
     id: 4,
-    title: "Event Server — 50K req/s",
+    title: "Agentic AI Lab — RAG & Agents",
     description:
-      "Optimized Event Server Implementation with schema validation achieving 50,000 requests per second throughput — used for real-time behavioral data collection at scale.",
-    tech: ["Node.js", "Schema Validation", "JavaScript"],
-    github: null,
+      "RAG pipelines (chunking, embeddings, vector retrieval) built as multi-step LangGraph flows with conditional routing and tool nodes — plus PGVector semantic search and SQL/calculator tool-calling agents.",
+    tech: ["Node.js", "TypeScript", "LangGraph", "PGVector", "OpenAI", "Claude"],
+    github: "https://github.com/sandeepvaid/learning-agentic-ai",
     live: null,
     color: "#ec4899",
+    emoji: "🤖",
+  },
+  {
+    id: 5,
+    title: "Event Server — 2M+ events/s",
+    description:
+      "A single-threaded event-processing microservice on AWS EC2 with schema validation, validating and transforming 2M+ events per second for real-time analytics and recommendations at scale.",
+    tech: ["Node.js", "AWS EC2", "Google Tag Manager", "JavaScript"],
+    github: null,
+    live: null,
+    color: "#facc15",
     emoji: "🚀",
   },
 ];
 
 export const skills = {
   languages: ["JavaScript", "TypeScript", "Python", "Java"],
-  frameworks: ["React", "Next.js", "Node.js", "Express.js", "Angular", "React Native", "Django", "Dropwizard"],
-  databases: ["PostgreSQL", "MongoDB", "Redis", "DynamoDB"],
-  cloud: ["AWS Lambda", "AWS S3", "AWS Cognito", "CloudWatch", "DynamoDB"],
-  tools: ["Git", "Docker", "Redis", "Google Tag Manager", "Shopify"],
+  frameworks: ["React", "Next.js", "Node.js", "Express.js", "Angular", "React Native", "Vue", "Django", "Spring Boot"],
+  databases: ["PostgreSQL", "PGVector", "MongoDB", "Redis", "DynamoDB", "Snowflake", "Redshift"],
+  cloud: ["AWS Lambda", "EC2", "ECS", "EKS", "S3", "SQS", "Kafka", "Airflow", "CloudWatch"],
+  ai: ["RAG", "AI Agents", "Tool Calling", "LangGraph", "MCP", "LLM APIs", "Embeddings", "Cursor"],
+  tools: ["Git", "Docker", "CI/CD", "Google Tag Manager", "Shopify"],
 };
 
 export const testimonials = [
@@ -167,10 +180,10 @@ export const testimonials = [
 ];
 
 export const stats = [
-  { label: "Records Processed", value: "100M+", suffix: "" },
-  { label: "Requests/Second", value: "50K", suffix: "+" },
-  { label: "Search Latency Cut", value: "2.35", suffix: "s" },
-  { label: "Manual Work Reduced", value: "80", suffix: "%" },
+  { label: "Records / Day", value: "100M+", suffix: "" },
+  { label: "Events / Second", value: "2M", suffix: "+" },
+  { label: "States Served", value: "13", suffix: "+" },
+  { label: "Storage Cost Cut", value: "85", suffix: "%" },
 ];
 
 export const blogs = [

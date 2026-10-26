@@ -9,8 +9,8 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space
 
 export const metadata: Metadata = {
   title: "Sandeep Vaid | Shinobi Portfolio",
-  description: "Senior Software Developer — Building scalable systems with precision and resilience.",
-  keywords: ["Sandeep Vaid", "Software Developer", "Full Stack", "Node.js", "React", "AWS"],
+  description: "Software Engineer II — Building scalable backend, cloud, and agentic AI systems with precision and resilience.",
+  keywords: ["Sandeep Vaid", "Software Engineer", "Backend", "Agentic AI", "RAG", "Node.js", "React", "AWS"],
   authors: [{ name: "Sandeep Vaid" }],
   openGraph: {
     title: "Sandeep Vaid | Shinobi Portfolio",
